@@ -6,7 +6,7 @@
 var vs =
     'attribute vec4 a_Position;\n'+
     'uniform float u_CosB,u_SinB;\n'+
-    'void mian(){\n'+
+    'void main(){\n'+
     'gl_Position.x = a_Position.x * u_CosB - a_Position.y * u_SinB;\n'+
     'gl_Position.y = a_Position.x * u_SinB + a_Position.y * u_CosB;\n'+
     'gl_Position.z = a_Position.z;\n'+
@@ -23,7 +23,7 @@ function main() {
     var gl =canvas.getContext('webgl');
 
 
-    if (initShaders(gl,vs, fs)) {
+    if (!initShaders(gl,vs, fs)) {
         console.log(`err shader log`);
     }
 
