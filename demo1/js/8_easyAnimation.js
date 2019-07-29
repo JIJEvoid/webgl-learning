@@ -16,7 +16,7 @@ var angle = 290.0;
 
 let canvas = document.getElementById('webgl')
 var gl = canvas.getContext('webgl');
-
+var angle = 90.0;
 function main() {
 
     if (!initShaders(gl, vs, fs)) {
@@ -60,12 +60,12 @@ function main() {
 }
 
 // 动画渲染
-function render(gl) {
-    if (!gl){
-        gl = window.gl;
-    }
+function render() {
+    console.log(`render`);
+    let gl = window.gl;
+
     var n = initVertexBuffer(gl);
-    var angle = 90.0;
+
     angle += 1;
     var radian = Math.PI * angle / 180.0;//角度值转弧度制
     var cosB = Math.cos(radian), sinB = Math.sin(radian);
@@ -87,24 +87,16 @@ function render(gl) {
 
 function initVertexBuffer() {
     let gl = window.gl;
-
     var vertices = new Float32Array([
         0.0, 0.25, -0.25, -0.25, 0.25, -0.25
     ]);
     var n = 3;
-
     var vertexBuffer = gl.createBuffer();
-
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
-
     gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
-
     var a_position = gl.getAttribLocation(gl.program, 'a_Position');
-
     gl.vertexAttribPointer(a_position, 2, gl.FLOAT, false, 0, 0);
-
     gl.enableVertexAttribArray(a_position);
-
     return n;
 }
 
