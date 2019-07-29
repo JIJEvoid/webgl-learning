@@ -49,12 +49,15 @@ function main() {
     gl.uniformMatrix4fv(u_xformMatrix, false,xformMatrix);
 
     gl.clearColor(0.0,0.0,0.0,1.0);
+
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     gl.drawArrays(gl.TRIANGLE_STRIP,0,n);
+
 }
 
 function initVertexBuffer(gl) {
+
     var vertices = new Float32Array([
         0.0,0.25,-0.25,-0.25,0.25,-0.25
     ]);
