@@ -12,7 +12,7 @@ let vs =
 
 let fs = 'void main(){gl_FragColor = vec4(1.0,0.0,0.0,1.0);}';
 
-var angle = 90.0;
+var angle = 290.0;
 
 function main() {
     let canvas = document.getElementById('webgl')
@@ -36,7 +36,7 @@ function main() {
 
     var scalex = 1.0,scaley = 1.5,scalez = 1.0;
 
-    //设置缩放矩阵
+    // 设置缩放矩阵
     var xformMatrix = new Float32Array([
         scalex, 0.0 , 0.0 , 0.0,
         0.0 , scaley ,0.0 , 0.0,
