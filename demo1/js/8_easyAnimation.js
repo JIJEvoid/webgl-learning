@@ -50,7 +50,7 @@ function main() {
 
     gl.uniformMatrix4fv(u_xformMatrix, false, xformMatrix);
 
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clearColor(1.0, 1.0, 1.0, 1.0);
 
     gl.clear(gl.COLOR_BUFFER_BIT);
 
@@ -79,7 +79,6 @@ function render() {
     var scalex = 1.0, scaley = 1.5, scalez = 1.0;
     var u_xformMatrix = gl.getUniformLocation(gl.program, 'u_xformMatrix');
     gl.uniformMatrix4fv(u_xformMatrix, false, xformMatrix);
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, n);
     window.requestAnimationFrame(render);
