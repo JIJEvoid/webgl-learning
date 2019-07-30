@@ -3,6 +3,7 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
       <profile-state>
@@ -65,4 +66,6 @@
       </profile-state>
     </entry>
   </component>
+=======
+>>>>>>> dev
 </project>
