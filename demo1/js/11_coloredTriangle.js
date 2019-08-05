@@ -6,16 +6,16 @@ var vs =
         'attribute vec4 a_Position;\n'+
         'attribute vec4 a_Color;\n'+
         'varying vec4 v_Color;\n'+
-        'void main(){\n'+
+        'void main() {\n'+
         ' gl_Position = a_Position;\n'+
-        ' gl_PointSize = 10.0;\n'+
         'v_Color = a_Color;\n'+
         '}\n';
-
-var fs = 'varying vec4 v_Color;\n'+
-        'void main(){\n'+
-        'gl_FragColor = v_Color;\n'+
-        '}';
+//es2。0 片元着色器  precision mediump float 声明浮点精度
+var fs =
+        'precision mediump float;\n varying vec4 v_Color;\n'+
+        ' void main() {\n'+
+        '  gl_FragColor = v_Color;\n'+
+        ' }';
 
 function main() {
     let canvas = document.getElementById('webgl');
