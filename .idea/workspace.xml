@@ -99,7 +99,7 @@
       <updated>1561536947233</updated>
       <workItem from="1561536948509" duration="487000" />
       <workItem from="1561702945931" duration="10776000" />
-      <workItem from="1570500529334" duration="3696000" />
+      <workItem from="1570500529334" duration="4941000" />
     </task>
     <task id="LOCAL-00001" summary="添加分支">
       <created>1561703558890</created>
@@ -136,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570507200603</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="threejs shader">
+      <created>1570507641347</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1570507641347</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
