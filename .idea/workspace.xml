@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d573caf8-10ce-45f8-b149-e992051d63ac" name="默认更改列表" comment="7 矩阵变换">
-      <change afterPath="$PROJECT_DIR$/fs-demo/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fs-demo/demo1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fs-demo/demo2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fs-demo/js/three.js" afterDir="false" />
+    <list default="true" id="d573caf8-10ce-45f8-b149-e992051d63ac" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fs-demo/demo2.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/demo2.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +99,7 @@
       <updated>1561536947233</updated>
       <workItem from="1561536948509" duration="487000" />
       <workItem from="1561702945931" duration="10776000" />
-      <workItem from="1570500529334" duration="3252000" />
+      <workItem from="1570500529334" duration="3696000" />
     </task>
     <task id="LOCAL-00001" summary="添加分支">
       <created>1561703558890</created>
@@ -132,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568775664394</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="threejs shader">
+      <created>1570507200603</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1570507200603</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -207,7 +211,8 @@
     <MESSAGE value="添加分支" />
     <MESSAGE value="7 矩阵计算" />
     <MESSAGE value="7 矩阵变换" />
-    <option name="LAST_COMMIT_MESSAGE" value="7 矩阵变换" />
+    <MESSAGE value="threejs shader" />
+    <option name="LAST_COMMIT_MESSAGE" value="threejs shader" />
   </component>
   <component name="masterDetails">
     <states>
