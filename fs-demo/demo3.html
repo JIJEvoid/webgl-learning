@@ -250,7 +250,7 @@ void main() {
     requestAnimationFrame(animate);
 
     var delta = clock.getDelta(); // 获取本次和上次的时间间隔
-    uniforms.iTime.value += delta; // 设置着色器使用的 iTime 参数
+    uniforms.iTime.value += 0.04; // 设置着色器使用的 iTime 参数
     renderer.render(scene, camera); // 重新渲染
   })();
 
