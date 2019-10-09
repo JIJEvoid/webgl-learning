@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d573caf8-10ce-45f8-b149-e992051d63ac" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/fs-demo/demo3.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fs-demo/demo2.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/demo2.html" afterDir="false" />
     </list>
@@ -101,6 +102,7 @@
       <workItem from="1561702945931" duration="10776000" />
       <workItem from="1570500529334" duration="6597000" />
       <workItem from="1570524293388" duration="471000" />
+      <workItem from="1570532743480" duration="2566000" />
     </task>
     <task id="LOCAL-00001" summary="添加分支">
       <created>1561703558890</created>
@@ -151,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570513358431</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="change">
+      <created>1570532752932</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1570532752932</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -227,7 +236,8 @@
     <MESSAGE value="7 矩阵计算" />
     <MESSAGE value="7 矩阵变换" />
     <MESSAGE value="threejs shader" />
-    <option name="LAST_COMMIT_MESSAGE" value="threejs shader" />
+    <MESSAGE value="change" />
+    <option name="LAST_COMMIT_MESSAGE" value="change" />
   </component>
   <component name="masterDetails">
     <states>
