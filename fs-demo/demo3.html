@@ -205,14 +205,16 @@ void main() {
 <div id="render"></div>
 
 <script type="text/javascript">
-  var width = window.innerWidth; // 画布的宽度
+  var width = window.innerWidth-1; // 画布的宽度
   var height = window.innerHeight; // 画布的高度
+  console.log(width);
+  console.log(height);
 
   // 渲染器
   var renderer = new THREE.WebGLRenderer({antialias: true});
   renderer.setSize(width, height);
   // 将canvas添加到指定元素
-  var element = document.getElementById('render');
+  var element = document.body;
   element.appendChild(renderer.domElement);
 
   // 场景
