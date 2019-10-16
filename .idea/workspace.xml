@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d573caf8-10ce-45f8-b149-e992051d63ac" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/fs-demo/data/logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fs-demo/data/moon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fs-demo/demo5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fs-demo/js/fetch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fs-demo/js/glslcanvas.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fs-demo/1-initshader.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs-demo/demo2.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/demo2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fs-demo/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fs-demo/demo5.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/demo5.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -105,7 +102,7 @@
       <workItem from="1570532743480" duration="3375000" />
       <workItem from="1571127493990" duration="941000" />
       <workItem from="1571195804294" duration="424000" />
-      <workItem from="1571196515345" duration="2454000" />
+      <workItem from="1571196515345" duration="4454000" />
     </task>
     <task id="LOCAL-00001" summary="添加分支">
       <created>1561703558890</created>
@@ -170,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570590062039</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="glsl canvas rendertoy">
+      <created>1571206120048</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1571206120048</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -248,7 +252,8 @@
     <MESSAGE value="threejs shader" />
     <MESSAGE value="change" />
     <MESSAGE value="add sea" />
-    <option name="LAST_COMMIT_MESSAGE" value="add sea" />
+    <MESSAGE value="glsl canvas rendertoy" />
+    <option name="LAST_COMMIT_MESSAGE" value="glsl canvas rendertoy" />
   </component>
   <component name="masterDetails">
     <states>
