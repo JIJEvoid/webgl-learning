@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>渐变的颜色</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script type="text/javascript" src="js/glslcanvas.js"></script>
+</head>
+<body>
+<canvas id="glslCanvas" width="800" height="600" data-textures="data/moon.jpg"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var fs = "" +
+    "precision mediump float;" +
+    "uniform vec2 u_resolution;" +
+    "uniform float u_color;" +
+    "void main() {" +
+    "vec2 st = gl_FragCoord.xy/u_resolution;" +
+    "gl_FragColor = vec4(st.x,st.y,abs(sin(u_color)),1.0);" +
+    "}";
+  sandbox.load(fs);
+  
+  canvas.style.width = '50%';
+  canvas.style.height = '50%';
+  let i=0.0;
+  setInterval(()=>{
+    i+=0.1;
+    sandbox.setUniform("u_color",i);
+  },100)
+</script>
+</body>
+</html>
