@@ -15,7 +15,8 @@
   var fs ="" +
     "precision mediump float;" +
     "uniform float u_color;" +
-    "void main() {gl_FragColor = vec4(u_color,0.0,1.0,1.0);}";
+    "uniform float u_time;" +
+    "void main() {gl_FragColor = vec4(u_color,abs(sin(u_time)),1.0,1.0);}";
   sandbox.load(fs);
   sandbox.setUniform("u_color",0.5);
   canvas.style.width = '50%';
