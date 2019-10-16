@@ -9,11 +9,12 @@
         void main() {
             gl_Position = vec4( position, 1.0 );
         }
-    
-    
     </script>
     
     <script id="fragmentShader" type="x-shader/x-fragment">
+    
+        precision lowp float;
+    
       uniform vec2 iResolution;
       uniform vec2 iMouse;
       uniform float iTime;
