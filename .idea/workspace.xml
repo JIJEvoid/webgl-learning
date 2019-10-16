@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d573caf8-10ce-45f8-b149-e992051d63ac" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/fs-demo/2-tweenColor.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,7 +100,7 @@
       <workItem from="1570532743480" duration="3375000" />
       <workItem from="1571127493990" duration="941000" />
       <workItem from="1571195804294" duration="424000" />
-      <workItem from="1571196515345" duration="7043000" />
+      <workItem from="1571196515345" duration="8627000" />
     </task>
     <task id="LOCAL-00001" summary="添加分支">
       <created>1561703558890</created>
@@ -187,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571213944826</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="2 渐变色">
+      <created>1571218062908</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1571218062908</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -268,7 +274,8 @@
     <MESSAGE value="glsl canvas rendertoy" />
     <MESSAGE value="init shadertoy" />
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="2 渐变色" />
+    <option name="LAST_COMMIT_MESSAGE" value="2 渐变色" />
   </component>
   <component name="masterDetails">
     <states>
