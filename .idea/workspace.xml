@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d573caf8-10ce-45f8-b149-e992051d63ac" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/fs-demo/3-smoothstep.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs-demo/性能测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/性能测试.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,11 +55,11 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/fs-demo/data" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/fs-demo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fs-demo/data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -101,7 +101,8 @@
       <workItem from="1570532743480" duration="3375000" />
       <workItem from="1571127493990" duration="941000" />
       <workItem from="1571195804294" duration="424000" />
-      <workItem from="1571196515345" duration="10270000" />
+      <workItem from="1571196515345" duration="10557000" />
+      <workItem from="1571300881692" duration="583000" />
     </task>
     <task id="LOCAL-00001" summary="添加分支">
       <created>1561703558890</created>
@@ -201,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571219844903</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="性能测试">
+      <created>1571277493618</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1571277493618</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
