@@ -1,10 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script type="text/javascript" src="js/glslcanvas.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/glslcanvas.js"></script>
+    <script id="fragmentShader" type="x-shader/x-fragment">
+const int numbers = 4;
+
+uniform sampler2D image;
+uniform float aspect;
+uniform float radius;
+uniform float amp;
+uniform float band;
+uniform float waves;
+uniform float speed;
+uniform float u_time;
+uniform float progress[numbers];
+uniform vec2 centres[numbers];
+
+varying vec2 vUv;
+
+void main() {
+  vec2 tc = vUv.xy;
+  vec2 uv = vec2(0.0, 0.0);
+  vec2 p;
+  float len;
+  vec2 uv_offset;
+  float wave_width = band * radius;
+
+  for (int i = 0; i < numbers; i += 1) {
+    if (progress[i] == -1.0) {
+      continue;
+    }
+
+    p = (tc - centres[i]);
+    p.x = p.x * aspect;
+    len = length(p);
+
+    float current_progress = progress[i];
+    float current_radius = radius * current_progress;
+    float damp_factor = 1.0;
+    if (current_progress > .5) {
+      damp_factor = (1.0 - current_progress) * 2.0;
+    }
+
+    float cut_factor = clamp(wave_width * damp_factor - abs(current_radius - len), 0.0, 1.0);
+    float waves_factor = waves * len / radius;
+    uv_offset = (p / len) * cos((waves_factor - current_progress * speed) * 3.14) * amp * cut_factor;
+
+    uv += uv_offset;
+  }
+
+	vec4 t_image = texture2D(image, fract(tc + uv));
+
+  gl_FragColor = t_image;
+}
+    
+    </script>
+    
+    <script id="vertexShader" type="x-shader/x-fragment">
+varying vec2 vUv;
+void main() {
+	vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+	vUv = uv;
+	gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}
+    
+    </script>
 </head>
 <body>
 <canvas id="glslCanvas" width="800" height="600" data-textures="data/moon.jpg"></canvas>
@@ -12,16 +75,37 @@
 <script>
   var canvas = document.getElementById("glslCanvas");
   var sandbox = new GlslCanvas(canvas);
-  var fs = "" +
-    "precision mediump float;" +
-    "uniform float u_mouse;" +
-    "uniform float u_time;" +
-    "uniform vec2 u_resolution;" +
-    "void main() {gl_FragColor = vec4(u_color,abs(sin(u_time)),1.0,1.0);}";
-  
-  
-  sandbox.load(fs);
+  var fs = document.getElementById('fragmentShader').textContent;
+  var vs = document.getElementById('vertexShader').textContent;
+
+  var Vector2 = function (opt_src) {
+    var v = new Float32Array(2);
+    if (opt_src && typeof opt_src === 'object') {
+      v[0] = opt_src[0];
+      v[1] = opt_src[1];
+      v[2] = opt_src[2];
+      v[3] = opt_src[3];
+    }
+    this.elements = v;
+  }
+  sandbox.load(fs, vs);
   sandbox.setUniform("u_color", 0.5);
+  sandbox.setUniform("image", "data/image.jpg");
+  sandbox.setUniform("radius", 0.1);
+  sandbox.setUniform("life", 0.9);
+  sandbox.setUniform("aspect", 16 / 9);
+  sandbox.setUniform("amp", 0.3);
+  sandbox.setUniform("waves", 12);
+  sandbox.setUniform("band", 0.4);
+  sandbox.setUniform("speed", 2.0);
+  sandbox.setUniform("progress", [
+    -1.0, -1.0, -1.0, -1.0
+  ]);
+  sandbox.setUniform("v2v", [
+    new Vector2([0.0, 0.0]), new Vector2([0.0, 0.0]), new Vector2([0.0, 0.0]), new Vector2([0.0, 0.0])
+  ]);
+
+
   canvas.style.width = '50%';
   canvas.style.height = '50%';
 </script>
