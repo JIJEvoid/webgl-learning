@@ -4,110 +4,180 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript" src="js/glslcanvas.js"></script>
-    <script id="fragmentShader" type="x-shader/x-fragment">
-const int numbers = 4;
-
-uniform sampler2D image;
-uniform float aspect;
-uniform float radius;
-uniform float amp;
-uniform float band;
-uniform float waves;
-uniform float speed;
-uniform float u_time;
-uniform float progress[numbers];
-uniform vec2 centres[numbers];
-
-varying vec2 vUv;
-
-void main() {
-  vec2 tc = vUv.xy;
-  vec2 uv = vec2(0.0, 0.0);
-  vec2 p;
-  float len;
-  vec2 uv_offset;
-  float wave_width = band * radius;
-
-  for (int i = 0; i < numbers; i += 1) {
-    if (progress[i] == -1.0) {
-      continue;
-    }
-
-    p = (tc - centres[i]);
-    p.x = p.x * aspect;
-    len = length(p);
-
-    float current_progress = progress[i];
-    float current_radius = radius * current_progress;
-    float damp_factor = 1.0;
-    if (current_progress > .5) {
-      damp_factor = (1.0 - current_progress) * 2.0;
-    }
-
-    float cut_factor = clamp(wave_width * damp_factor - abs(current_radius - len), 0.0, 1.0);
-    float waves_factor = waves * len / radius;
-    uv_offset = (p / len) * cos((waves_factor - current_progress * speed) * 3.14) * amp * cut_factor;
-
-    uv += uv_offset;
-  }
-
-	vec4 t_image = texture2D(image, fract(tc + uv));
-
-  gl_FragColor = t_image;
-}
-    
-    </script>
-    
-    <script id="vertexShader" type="x-shader/x-fragment">
-varying vec2 vUv;
-void main() {
-	vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-	vUv = uv;
-	gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-}
-    
-    </script>
 </head>
 <body>
-<canvas id="glslCanvas" width="800" height="600" data-textures="data/moon.jpg"></canvas>
-
-<script>
-  var canvas = document.getElementById("glslCanvas");
-  var sandbox = new GlslCanvas(canvas);
-  var fs = document.getElementById('fragmentShader').textContent;
-  var vs = document.getElementById('vertexShader').textContent;
-
-  var Vector2 = function (opt_src) {
-    var v = new Float32Array(2);
-    if (opt_src && typeof opt_src === 'object') {
-      v[0] = opt_src[0];
-      v[1] = opt_src[1];
-      v[2] = opt_src[2];
-      v[3] = opt_src[3];
+<div id="container"></div>
+<script src="js/three.js"></script>
+<script id="vertexShader" type="x-shader/x-vertex">
+    varying vec2 vUv;
+    
+    void main() {
+        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+        
+        vUv = uv;
+        
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
-    this.elements = v;
+
+</script>
+<script id="fragmentShader" type="x-shader/x-fragment">
+    const int numbers = 4;
+    
+    uniform sampler2D image;
+    uniform float aspect;
+    uniform float radius;
+    uniform float amp;
+    uniform float band;
+    uniform float waves;
+    uniform float speed;
+    uniform float u_time;
+    uniform float progress[numbers];
+    uniform vec2 centres[numbers];
+    
+    varying vec2 vUv;
+    
+    void main() {
+        vec2 tc = vUv.xy;
+        vec2 uv = vec2(0.0, 0.0);
+        vec2 p;
+        float len;
+        vec2 uv_offset;
+        float wave_width = band * radius;
+        
+        for (int i = 0; i < numbers; i += 1) {
+            if (progress[i] == -1.0) {
+                continue;
+            }
+            
+            p = (tc - centres[i]);
+            p.x = p.x * aspect;
+            len = length(p);
+            
+            float current_progress = progress[i];
+            float current_radius = radius * current_progress;
+            float damp_factor = 1.0;
+            if (current_progress > .5) {
+                damp_factor = (1.0 - current_progress) * 2.0;
+            }
+            
+            float cut_factor = clamp(wave_width * damp_factor - abs(current_radius - len), 0.0, 1.0);
+            float waves_factor = waves * len / radius;
+            uv_offset = (p / len) * cos((waves_factor - current_progress * speed) * 3.14) * amp * cut_factor;
+            
+            uv += uv_offset;
+        }
+        
+        vec4 t_image = texture2D(image, fract(tc + uv));
+        
+        gl_FragColor = t_image;
+    }
+
+
+</script>
+<script>
+  var container;
+  var camera, scene, renderer;
+  var uniforms,time=0;
+
+  init();
+  animate();
+
+  function init() {
+    container = document.getElementById('container');
+
+    camera = new THREE.Camera();
+    camera.position.z = 1;
+
+    scene = new THREE.Scene();
+
+    var geometry = new THREE.PlaneBufferGeometry(2, 2);
+
+    var textureLoader = new THREE.TextureLoader();
+    uniforms = {
+      image: {type: 't', value: textureLoader.load('./data/image.jpg')},
+      aspect: {type: 'f', value: 16 / 9},
+      radius: {type: 'f', value: 0.3},
+      amp: {type: 'f', value: 0.22},
+      band: {type: 'f', value: 0.3},
+      waves: {type: 'f', value: 8.0},
+      speed: {type: 'f', value: 9.0},
+      u_time: {type: 'f', value: 0.0},
+      progress: {
+        type: 'fv', value: [
+          -1, -1, -1, -1
+        ]
+      },
+      centres: {
+        type: 'v2v', value: [
+          new THREE.Vector2(0.0, 0.0),
+          new THREE.Vector2(0.0, 0.0),
+          new THREE.Vector2(0.0, 0.0),
+          new THREE.Vector2(0.0, 0.0)
+        ]
+      }
+    };
+    var material = new THREE.ShaderMaterial({
+      uniforms: uniforms,
+      vertexShader: document.getElementById('vertexShader').textContent,
+      fragmentShader: document.getElementById('fragmentShader').textContent
+    });
+    material.needsUpdate = true;
+
+    var mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    renderer = new THREE.WebGLRenderer();
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    container.appendChild(renderer.domElement);
+
+    onWindowResize();
+    window.addEventListener('resize', onWindowResize, false);
   }
-  sandbox.load(fs, vs);
-  sandbox.setUniform("u_color", 0.5);
-  sandbox.setUniform("image", "data/image.jpg");
-  sandbox.setUniform("radius", 0.1);
-  sandbox.setUniform("life", 0.9);
-  sandbox.setUniform("aspect", 16 / 9);
-  sandbox.setUniform("amp", 0.3);
-  sandbox.setUniform("waves", 12);
-  sandbox.setUniform("band", 0.4);
-  sandbox.setUniform("speed", 2.0);
-  sandbox.setUniform("progress", [
-    -1.0, -1.0, -1.0, -1.0
-  ]);
-  sandbox.setUniform("v2v", [
-    new Vector2([0.0, 0.0]), new Vector2([0.0, 0.0]), new Vector2([0.0, 0.0]), new Vector2([0.0, 0.0])
-  ]);
 
+  function onWindowResize(event) {
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-  canvas.style.width = '50%';
-  canvas.style.height = '50%';
+  }
+
+  document.getElementById('container').addEventListener('click', (event) => {
+    const {clientX, clientY} = event;
+
+    for (let index = 0; index < 4; index += 1) {
+      if (uniforms.progress.value[index] === -1) {
+        uniforms.progress.value[index] = 0;
+        uniforms.centres.value[index] = new THREE.Vector2(
+          clientX / document.getElementById('container').offsetWidth,
+          1 - clientY / document.getElementById('container').offsetHeight
+        );
+        break;
+      }
+    }
+  })
+
+  function animate() {
+    requestAnimationFrame(animate);
+    render();
+  }
+
+  function render() {
+    uniforms.u_time.value += 0.05;
+
+    const diff = performance.now() - time;
+    time = performance.now();
+    uniforms.u_time.value = Math.abs(time);
+
+    for (let index = 0; index < 4; index += 1) {
+      const progress = uniforms.progress.value[index];
+      if (progress >= 1) {
+        uniforms.progress.value[index] = -1;
+      } else if (progress >= 0) {
+        uniforms.progress.value[index] += diff / (1.2* 1000);
+      }
+    }
+    
+    renderer.render(scene, camera);
+  }
 </script>
 </body>
 </html>
