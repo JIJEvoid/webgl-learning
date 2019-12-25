@@ -33,6 +33,7 @@
 
     #define time iTime*0.15
     #define tau 6.2831853
+    #define PI 3.1415926
     
     mat2 makem2(in float theta){ float c = cos(theta);float s = sin(theta);return mat2(c, -s, s, c); }
     float noise(in vec2 x){ return texture2D(iChannel0, x*.01).x; }
@@ -82,7 +83,7 @@
         float rz = dualfbm(p);
         
         //rings
-        p /= exp(mod(time*10., 3.14159));
+        p /= exp(mod(time*10., PI));
         rz *= pow(abs((0.1-circ(p))), .9);
         
         //final color
