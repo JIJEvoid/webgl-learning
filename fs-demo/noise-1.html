@@ -8,6 +8,7 @@
 <body>
 <div id="container"></div>
 <script src="js/three.js"></script>
+
 <script id="vertexShader" type="x-shader/x-vertex">
     varying vec2 vUv;
     
@@ -20,6 +21,7 @@
     }
 
 </script>
+
 <script id="fragmentShader" type="x-shader/x-fragment">
     
     uniform float iTime;
@@ -55,7 +57,8 @@
         vec2 p2 = p*.7;
         vec2 basis = vec2(fbm(p2-time*1.6), fbm(p2+time*1.7));
         basis = (basis-.5)*.2;
-        p += basis;
+        // 噪纹波动
+        p += basis*sin(time);
         
         //coloring
         return fbm(p*makem2(time*0.2));
@@ -112,7 +115,7 @@
   //对纹理进行平铺
   var lavaTexture = THREE.ImageUtils.loadTexture( './data/noise.png' );
   lavaTexture.wrapS = lavaTexture.wrapT = THREE.RepeatWrapping;
-  lavaTexture.repeat.set( 20, 20 );
+  lavaTexture.repeat.set( 200, 200 );
   
   
   // 传递给着色器的uniform参数
