@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f3addcb0-dbf6-47d3-bb5f-2728f9134917" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fs-demo/demo6.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/demo6.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +17,7 @@
         <option value="threeJsTemp" />
         <option value="THREEJS File" />
         <option value="HTML File" />
+        <option value="GLSL Shader" />
       </list>
     </option>
   </component>
@@ -33,12 +35,18 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fs-demo/data" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fs-demo/data" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -84,7 +92,8 @@
       <workItem from="1572922297252" duration="9000" />
       <workItem from="1572933384684" duration="1180000" />
       <workItem from="1572951238353" duration="1869000" />
-      <workItem from="1577344515017" duration="3182000" />
+      <workItem from="1577344515017" duration="7678000" />
+      <workItem from="1577433325730" duration="5733000" />
     </task>
     <task id="LOCAL-00002" summary="水波">
       <created>1572952555325</created>
@@ -93,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572952555325</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="造型函数">
+      <created>1577347819089</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577347819089</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +132,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="水波" />
-    <option name="LAST_COMMIT_MESSAGE" value="水波" />
+    <MESSAGE value="造型函数" />
+    <option name="LAST_COMMIT_MESSAGE" value="造型函数" />
   </component>
 </project>

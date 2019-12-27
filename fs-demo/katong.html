@@ -32,27 +32,63 @@
     
     uniform vec2 iResolution;
     uniform sampler2D iChannel0;
+    uniform sampler2D iTime;
+    varying vec2 vUv;
+    uniform float iArg0;
+
+
+    float hash( float n )
+    {
+        return fract(sin(n)*43758.5453123);
+    }
+
+    float noise( in vec2 x )
+    {
+        vec2 p = floor(x);
+        vec2 f = fract(x);
+        f = f*f*(3.0-2.0*f);
+        float n = p.x + p.y*157.0;
+        return mix(mix( hash(n+  0.0), hash(n+  1.0),f.x),mix( hash(n+157.0), hash(n+158.0),f.x),f.y);
+    }
+
+    const mat2 m2 = mat2( 0.80, -0.60, 0.60, 0.80 );
+
+    float fbm( vec2 p )
+    {
+        float f = 0.0;
+        f += 0.5000*noise( p ); p = m2*p*2.02;
+        f += 0.2500*noise( p ); p = m2*p*2.03;
+        f += 0.1250*noise( p ); p = m2*p*2.01;
+        f += 0.0625*noise( p );
+        return f/0.9375;
+    }
+    
     
     float plot(vec2 st, float pct){
         return  smoothstep( pct-0.02, pct, st.y) -
         smoothstep( pct, pct+0.02, st.y);
     }
     
+    float countC(float color){
+        
+        return floor(color*iArg0)/iArg0;
+    }
+    
     void main() {
         vec2 st = gl_FragCoord.xy/iResolution;
         
-        // Smooth interpolation between 0.1 and 0.9
-        float y = smoothstep(0.1,0.9,st.x);
         
-        vec3 color = vec3(y);
+        vec4 color = texture2D(iChannel0,st);
+        //gl_FragColor = color;
+        color.r = countC(color.r);
+        color.g = countC(color.g);
+        color.b = countC(color.b);
         
-        float pct = plot(st,y);
-        color = (1.0-pct)*color+pct*vec3(0.0,1.0,0.0);
-        
-        gl_FragColor = vec4(color,1.0);
+        gl_FragColor = color;
     }
 
 </script>
+
 <script>
 
   var width = window.innerWidth; // 画布的宽度
@@ -74,18 +110,19 @@
   var textureLoader = new THREE.TextureLoader();
 
   //对纹理进行平铺
-  var lavaTexture = THREE.ImageUtils.loadTexture( './data/noise.png' );
+  var lavaTexture = THREE.ImageUtils.loadTexture( './data/juzi.jpg' );
   lavaTexture.wrapS = lavaTexture.wrapT = THREE.RepeatWrapping;
   lavaTexture.repeat.set( 200, 200 );
 
-
+  
   // 传递给着色器的uniform参数
   var uniforms = {
     iTime: {value: 1.0},
     iResolution: {value: new THREE.Vector2(width * 1.0, height * 1.0)},
     iChannel0: { value: lavaTexture },
-
-  }
+    iArg0:{value: 5.0},
+  };
+  window.uniforms = uniforms;
   // 材质
   var material = new THREE.ShaderMaterial({
     // 着色器 uniform 参数
