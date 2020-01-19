@@ -27,7 +27,7 @@
     #ifdef GL_ES
     precision mediump float;
     #endif
-
+    
     uniform vec2 iResolution;
     uniform sampler2D iChannel0;
     uniform float iTime;
@@ -39,47 +39,47 @@
     #define DOTOFFSET .04
     #define SPEED 0.2
     #define POWER 3.
-    #define COLTOP vec3(182./255.,158./255.,251./255.)
-    #define COLBTM vec3(182./255.,158./255.,251./255.)
-
+    #define COLTOP vec3(182./255., 158./255., 251./255.)
+    #define COLBTM vec3(182./255., 158./255., 251./255.)
+    
     #define lerp mix
     #define pi 3.1415
-
-    float smin( float a, float b, float k )
+    
+    float smin(float a, float b, float k)
     {
-        float h = clamp( 0.5+0.5*(b-a)/k, 0.0, 1.0 );
-        return mix( b, a, h ) - k*h*(1.0-h);
+        float h = clamp(0.5+0.5*(b-a)/k, 0.0, 1.0);
+        return mix(b, a, h) - k*h*(1.0-h);
     }
-
+    
     void main()
     {
         vec2 mainGF = gl_FragCoord.xy;
         vec2 uv = mainGF/iResolution.xy-.5;
         uv.x*=iResolution.x/iResolution.y;
-    
+        
         float d = 9999.;
         vec3 col;
         float isOff = .0;
         for (int i=0;i<DOTS;i++) {
-            float t = pow(fract(iTime*SPEED+(float(i)*DOTOFFSET)),POWER);
+            float t = pow(fract(iTime*SPEED+(float(i)*DOTOFFSET)), POWER);
             float s = pi*2.;
             vec2 o = vec2(sin(t*s), cos(t*s))*.2;
             float dist = length(uv+o)-.01;
             if (dist<d){
-                col=lerp(COLTOP,COLBTM, cos(t*s)*.5+.5);
+                col=lerp(COLTOP, COLBTM, cos(t*s)*.5+.5);
                 isOff = 1.;
-            }else{
+            } else {
                 isOff = 0.;
             }
-            d = smin(d,dist, 0.04);
+            d = smin(d, dist, 0.04);
         }
         
-        col = lerp(col, vec3(0.,0.,.0), smoothstep(0., 0.005, d));
-        if(col.x < 0.005){
+        col = lerp(col, vec3(0., 0., .0), smoothstep(0., 0.005, d));
+        if (col.x < 0.005){
             discard;
         }
         // Output to screen
-        gl_FragColor = vec4(col,0.5);
+        gl_FragColor = vec4(col, 0.5);
     }
 
 </script>
@@ -90,7 +90,7 @@
   var height = window.innerHeight; // 画布的高度
 
   // 渲染器
-  var renderer = new THREE.WebGLRenderer({antialias: true,alpha: true });
+  var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
   renderer.setSize(width, height);
   // 将canvas添加到指定元素
   var element = document.getElementById('container');
@@ -105,17 +105,17 @@
   var textureLoader = new THREE.TextureLoader();
 
   //对纹理进行平铺
-  var lavaTexture = THREE.ImageUtils.loadTexture( './data/juzi.jpg' );
+  var lavaTexture = THREE.ImageUtils.loadTexture('./data/juzi.jpg');
   lavaTexture.wrapS = lavaTexture.wrapT = THREE.RepeatWrapping;
-  lavaTexture.repeat.set( 200, 200 );
+  lavaTexture.repeat.set(200, 200);
 
 
   // 传递给着色器的uniform参数
   var uniforms = {
     iTime: {value: 1.0},
     iResolution: {value: new THREE.Vector2(width * 1.0, height * 1.0)},
-    iChannel0: { value: lavaTexture },
-    iArg0:{value: 5.0},
+    iChannel0: {value: lavaTexture},
+    iArg0: {value: 5.0},
   };
   window.uniforms = uniforms;
   // 材质
