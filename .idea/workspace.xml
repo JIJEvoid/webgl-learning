@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f3addcb0-dbf6-47d3-bb5f-2728f9134917" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs-demo/katong.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/katong.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fs-demo/loading.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/loading.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +99,7 @@
       <workItem from="1577775158503" duration="3681000" />
       <workItem from="1577930615592" duration="2671000" />
       <workItem from="1578018122231" duration="80000" />
-      <workItem from="1579422882325" duration="120000" />
+      <workItem from="1579422882325" duration="1044000" />
     </task>
     <task id="LOCAL-00002" summary="水波">
       <created>1572952555325</created>
@@ -122,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577441393049</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="混合">
+      <created>1579423224191</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1579423224191</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +154,7 @@
     <MESSAGE value="水波" />
     <MESSAGE value="造型函数" />
     <MESSAGE value="纹理" />
-    <option name="LAST_COMMIT_MESSAGE" value="纹理" />
+    <MESSAGE value="混合" />
+    <option name="LAST_COMMIT_MESSAGE" value="混合" />
   </component>
 </project>
