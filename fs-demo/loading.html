@@ -27,84 +27,54 @@
     #ifdef GL_ES
     precision mediump float;
     #endif
-    
-    #define PI 3.14159265359
-    
+
     uniform vec2 iResolution;
     uniform sampler2D iChannel0;
     uniform float iTime;
     varying vec2 vUv;
     uniform float iArg0;
+    
+    
+    #define DOTS 14
+    #define DOTOFFSET .04
+    #define SPEED 0.2
+    #define POWER 3.
+    #define COLTOP vec3(.9,0.1,1.)
+    #define COLBTM vec3(1.,.4,.3)
 
+    #define lerp mix
+    #define pi 3.1415
 
-    float hash( float n )
+    float smin( float a, float b, float k )
     {
-        return fract(sin(n)*43758.5453123);
+        float h = clamp( 0.5+0.5*(b-a)/k, 0.0, 1.0 );
+        return mix( b, a, h ) - k*h*(1.0-h);
     }
 
-    float noise( in vec2 x )
+    void main()
     {
-        vec2 p = floor(x);
-        vec2 f = fract(x);
-        f = f*f*(3.0-2.0*f);
-        float n = p.x + p.y*157.0;
-        return mix(mix( hash(n+  0.0), hash(n+  1.0),f.x),mix( hash(n+157.0), hash(n+158.0),f.x),f.y);
-    }
-
-    const mat2 m2 = mat2( 0.80, -0.60, 0.60, 0.80 );
-
-    float fbm( vec2 p )
-    {
-        float f = 0.0;
-        f += 0.5000*noise( p ); p = m2*p*2.02;
-        f += 0.2500*noise( p ); p = m2*p*2.03;
-        f += 0.1250*noise( p ); p = m2*p*2.01;
-        f += 0.0625*noise( p );
-        return f/0.9375;
-    }
+        vec2 uv = gl_FragCoord/iResolution.xy-.5;
+        uv.x*=iResolution.x/iResolution.y;
+    
+        float d = 9999.;
+        vec3 col;
+        for (int i=0;i<DOTS;i++) {
+            float t = pow(fract(iTime*SPEED+(float(i)*DOTOFFSET)),POWER);
+            float s = pi*2.;
+            vec2 o = vec2(sin(t*s), cos(t*s))*.2;
+            float dist = length(uv+o)-.01;
+            if (dist<d){
+                col=lerp(COLTOP,COLBTM, cos(t*s)*.5+.5);
+            }
+            d = smin(d,dist, 0.04);
+        }
     
     
-    float plot(vec2 st, float pct){
-        return  smoothstep( pct-0.02, pct, st.y) -
-        smoothstep( pct, pct+0.02, st.y);
-    }
     
-    float countC(float color){
-        
-        return floor(color*iArg0)/iArg0;
-    }
+        col = lerp(col, vec3(1.,1.,.9), smoothstep(0., 0.005, d));
     
-    void main() {
-        vec2 st = gl_FragCoord.xy/iResolution;
-    
-        float h = iTime/10.;
-        float v = iTime/10.;
-        vec4 color = texture2D(iChannel0,st);
-        vec4 sum = vec4( 0.0 );
-    
-        //纵向高斯模糊
-        sum += texture2D( iChannel0, vec2( st.x, st.y - 4.0 * v ) ) * (0.051/2.0);
-        sum += texture2D( iChannel0, vec2( st.x, st.y - 3.0 * v ) ) * (0.0918/2.0);
-        sum += texture2D( iChannel0, vec2( st.x, st.y - 2.0 * v ) ) * (0.12245/2.0);
-        sum += texture2D( iChannel0, vec2( st.x, st.y - 1.0 * v ) ) * (0.1531/2.0);
-        sum += texture2D( iChannel0, vec2( st.x, st.y ) ) * (0.1633/2.0);
-        sum += texture2D( iChannel0, vec2( st.x, st.y + 1.0 * v ) ) * (0.1531/2.0);
-        sum += texture2D( iChannel0, vec2( st.x, st.y + 2.0 * v ) ) * (0.12245/2.0);
-        sum += texture2D( iChannel0, vec2( st.x, st.y + 3.0 * v ) ) * (0.0918/2.0);
-        sum += texture2D( iChannel0, vec2( st.x, st.y + 4.0 * v ) ) * (0.051/2.0);
-        
-        //横向高斯模糊
-        sum += texture2D( iChannel0, vec2( st.x - 4.0 * h, st.y ) ) * (0.051/2.0);
-        sum += texture2D( iChannel0, vec2( st.x - 3.0 * h, st.y ) ) * (0.0918/2.0);
-        sum += texture2D( iChannel0, vec2( st.x - 2.0 * h, st.y ) ) * (0.12245/2.0);
-        sum += texture2D( iChannel0, vec2( st.x - 1.0 * h, st.y ) ) * (0.1531/2.0);
-        sum += texture2D( iChannel0, vec2( st.x, st.y ) ) * (0.1633/2.0);
-        sum += texture2D( iChannel0, vec2( st.x + 1.0 * h, st.y ) ) * (0.1531/2.0);
-        sum += texture2D( iChannel0, vec2( st.x + 2.0 * h, st.y ) ) * (0.12245/2.0);
-        sum += texture2D( iChannel0, vec2( st.x + 3.0 * h, st.y ) ) * (0.0918/2.0);
-        sum += texture2D( iChannel0, vec2( st.x + 4.0 * h, st.y ) ) * (0.051/2.0);
-    
-        gl_FragColor = sum;
+        // Output to screen
+        gl_FragColor = vec4(col,1.0);
     }
 
 </script>
@@ -134,7 +104,7 @@
   lavaTexture.wrapS = lavaTexture.wrapT = THREE.RepeatWrapping;
   lavaTexture.repeat.set( 200, 200 );
 
-  
+
   // 传递给着色器的uniform参数
   var uniforms = {
     iTime: {value: 1.0},
