@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>性能测试</title>
     <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript" src="js/glslcanvas.js"></script>
+    <script type="text/javascript" src="js/code.min.js"></script>
 </head>
 <body>
 <canvas id="glslCanvas"  width="800" height="600" data-textures="data/moon.jpg"></canvas>
@@ -17,8 +17,54 @@
     "uniform float u_color;" +
     "uniform float u_time;" +
     "void main() {gl_FragColor = vec4(u_color,abs(sin(u_time)),1.0,1.0);}";
+  
+  
+  var fs = `
+  precision mediump float;
+  uniform vec2 u_resolution;
+  uniform float u_time;
+  void main()
+  {
+    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    float xCol = (uv.x - (u_time / 2.0)) * 3.0;
+    xCol = mod(xCol, 3.0);
+    vec3 horColour = vec3(0.25, 0.25, 0.25);
+
+    if (xCol < 1.0) {
+
+      horColour.r += 1.0 - xCol;
+      horColour.g += xCol;
+    }
+    else if (xCol < 2.0) {
+
+      xCol -= 1.0;
+      horColour.g += 1.0 - xCol;
+      horColour.b += xCol;
+    }
+    else {
+
+      xCol -= 2.0;
+      horColour.b += 1.0 - xCol;
+      horColour.r += xCol;
+    }
+
+    float backValue = 1.0;
+    float aspect = u_resolution.x / u_resolution.y;
+    if (mod(uv.y * 100.0, 1.0) > 0.75 || mod(uv.x * 100.0 * aspect, 1.0) > 0.75) {
+
+      backValue = 1.15;
+    }
+
+    vec3 backLines  = vec3(backValue);
+
+    //main beam
+    uv = (2.0 * uv) - 1.0;
+    float beamWidth = abs(1.0 / (30.0 * uv.y));
+    vec3 horBeam = vec3(beamWidth);
+
+    gl_FragColor = vec4(((backLines * horBeam) * horColour), 1.0);
+  }`;
   sandbox.load(fs);
-  sandbox.setUniform("u_color",0.5);
   canvas.style.width = '50%';
   canvas.style.height = '50%';
 </script>

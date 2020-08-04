@@ -5,16 +5,13 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :
             (global.GlslCanvas = factory());
-}(this, (function () { 'use strict';
+}(this, (function () {
+    'use strict';
 
     var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
-
-
-
-
     function createCommonjsModule(fn, module) {
-        return module = { exports: {} }, fn(module, module.exports), module.exports;
+        return module = {exports: {}}, fn(module, module.exports), module.exports;
     }
 
     var win;
@@ -23,7 +20,7 @@
         win = window;
     } else if (typeof commonjsGlobal !== "undefined") {
         win = commonjsGlobal;
-    } else if (typeof self !== "undefined"){
+    } else if (typeof self !== "undefined") {
         win = self;
     } else {
         win = {};
@@ -35,7 +32,7 @@
 
     var toString = Object.prototype.toString;
 
-    function isFunction (fn) {
+    function isFunction(fn) {
         var string = toString.call(fn);
         return string === '[object Function]' ||
             (typeof fn === 'function' && string !== '[object RegExp]') ||
@@ -50,15 +47,15 @@
     var trim_1 = createCommonjsModule(function (module, exports) {
         exports = module.exports = trim;
 
-        function trim(str){
+        function trim(str) {
             return str.replace(/^\s*|\s*$/g, '');
         }
 
-        exports.left = function(str){
+        exports.left = function (str) {
             return str.replace(/^\s*/, '');
         };
 
-        exports.right = function(str){
+        exports.right = function (str) {
             return str.replace(/\s*$/, '');
         };
     });
@@ -108,7 +105,7 @@
         }
     }
 
-    var isArray = function(arg) {
+    var isArray = function (arg) {
         return Object.prototype.toString.call(arg) === '[object Array]';
     };
 
@@ -125,12 +122,12 @@
                     , key = trim_1(row.slice(0, index)).toLowerCase()
                     , value = trim_1(row.slice(index + 1));
 
-                if (typeof(result[key]) === 'undefined') {
+                if (typeof (result[key]) === 'undefined') {
                     result[key] = value;
                 } else if (isArray(result[key])) {
                     result[key].push(value);
                 } else {
-                    result[key] = [ result[key], value ];
+                    result[key] = [result[key], value];
                 }
             }
         );
@@ -161,17 +158,14 @@
     "use strict";
 
 
-
-
-
     var xhr = createXHR;
 // Allow use of default import syntax in TypeScript
     var default_1 = createXHR;
     createXHR.XMLHttpRequest = window_1.XMLHttpRequest || noop;
     createXHR.XDomainRequest = "withCredentials" in (new createXHR.XMLHttpRequest()) ? createXHR.XMLHttpRequest : window_1.XDomainRequest;
 
-    forEachArray(["get", "put", "post", "patch", "head", "delete"], function(method) {
-        createXHR[method === "delete" ? "del" : method] = function(uri, options, callback) {
+    forEachArray(["get", "put", "post", "patch", "head", "delete"], function (method) {
+        createXHR[method === "delete" ? "del" : method] = function (uri, options, callback) {
             options = initParams(uri, options, callback);
             options.method = method.toUpperCase();
             return _createXHR(options)
@@ -184,9 +178,9 @@
         }
     }
 
-    function isEmpty(obj){
-        for(var i in obj){
-            if(obj.hasOwnProperty(i)) return false
+    function isEmpty(obj) {
+        for (var i in obj) {
+            if (obj.hasOwnProperty(i)) return false
         }
         return true
     }
@@ -197,7 +191,7 @@
         if (isFunction_1(options)) {
             callback = options;
             if (typeof uri === "string") {
-                params = {uri:uri};
+                params = {uri: uri};
             }
         } else {
             params = immutable(options, {uri: uri});
@@ -213,13 +207,13 @@
     }
 
     function _createXHR(options) {
-        if(typeof options.callback === "undefined"){
+        if (typeof options.callback === "undefined") {
             throw new Error("callback argument missing")
         }
 
         var called = false;
-        var callback = function cbOnce(err, response, body){
-            if(!called){
+        var callback = function cbOnce(err, response, body) {
+            if (!called) {
                 called = true;
                 options.callback(err, response, body);
             }
@@ -244,7 +238,8 @@
             if (isJson) {
                 try {
                     body = JSON.parse(body);
-                } catch (e) {}
+                } catch (e) {
+                }
             }
 
             return body
@@ -252,8 +247,8 @@
 
         function errorFunc(evt) {
             clearTimeout(timeoutTimer);
-            if(!(evt instanceof Error)){
-                evt = new Error("" + (evt || "Unknown XMLHttpRequest Error") );
+            if (!(evt instanceof Error)) {
+                evt = new Error("" + (evt || "Unknown XMLHttpRequest Error"));
             }
             evt.statusCode = 0;
             return callback(evt, failureResponse)
@@ -264,7 +259,7 @@
             if (aborted) return
             var status;
             clearTimeout(timeoutTimer);
-            if(options.useXDR && xhr.status===undefined) {
+            if (options.useXDR && xhr.status === undefined) {
                 //IE8 CORS GET successful response doesn't have a status field, but body is fine
                 status = 200;
             } else {
@@ -273,7 +268,7 @@
             var response = failureResponse;
             var err = null;
 
-            if (status !== 0){
+            if (status !== 0) {
                 response = {
                     body: getBody(),
                     statusCode: status,
@@ -282,7 +277,7 @@
                     url: uri,
                     rawRequest: xhr
                 };
-                if(xhr.getAllResponseHeaders){ //remember xhr can in fact be XDR for CORS in IE
+                if (xhr.getAllResponseHeaders) { //remember xhr can in fact be XDR for CORS in IE
                     response.headers = parseHeaders(xhr.getAllResponseHeaders());
                 }
             } else {
@@ -296,7 +291,7 @@
         if (!xhr) {
             if (options.cors || options.useXDR) {
                 xhr = new createXHR.XDomainRequest();
-            }else{
+            } else {
                 xhr = new createXHR.XMLHttpRequest();
             }
         }
@@ -335,32 +330,32 @@
         xhr.onprogress = function () {
             // IE must die
         };
-        xhr.onabort = function(){
+        xhr.onabort = function () {
             aborted = true;
         };
         xhr.ontimeout = errorFunc;
         xhr.open(method, uri, !sync, options.username, options.password);
         //has to be after open
-        if(!sync) {
+        if (!sync) {
             xhr.withCredentials = !!options.withCredentials;
         }
         // Cannot set timeout with sync request
         // not setting timeout on the xhr object, because of old webkits etc. not handling that correctly
         // both npm's request and jquery 1.x use this kind of timeout, so this is being consistent
-        if (!sync && options.timeout > 0 ) {
-            timeoutTimer = setTimeout(function(){
+        if (!sync && options.timeout > 0) {
+            timeoutTimer = setTimeout(function () {
                 if (aborted) return
                 aborted = true;//IE9 may still call readystatechange
                 xhr.abort("timeout");
                 var e = new Error("XMLHttpRequest timeout");
                 e.code = "ETIMEDOUT";
                 errorFunc(e);
-            }, options.timeout );
+            }, options.timeout);
         }
 
         if (xhr.setRequestHeader) {
-            for(key in headers){
-                if(headers.hasOwnProperty(key)){
+            for (key in headers) {
+                if (headers.hasOwnProperty(key)) {
                     xhr.setRequestHeader(key, headers[key]);
                 }
             }
@@ -399,12 +394,14 @@
             if (xhr.responseType === "" && !firefoxBugTakenEffect) {
                 return xhr.responseXML
             }
-        } catch (e) {}
+        } catch (e) {
+        }
 
         return null
     }
 
-    function noop() {}
+    function noop() {
+    }
 
     xhr.default = default_1;
 
@@ -413,9 +410,6 @@
     } : function (obj) {
         return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     };
-
-
-
 
 
     var asyncGenerator = function () {
@@ -532,9 +526,6 @@
     }();
 
 
-
-
-
     var classCallCheck = function (instance, Constructor) {
         if (!(instance instanceof Constructor)) {
             throw new TypeError("Cannot call a class as a function");
@@ -558,45 +549,6 @@
             return Constructor;
         };
     }();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     var toConsumableArray = function (arr) {
@@ -904,11 +856,6 @@
     }
 
 
-
-
-
-
-
     function isDiff(a, b) {
         if (a && b) {
             return a.toString() !== b.toString();
@@ -1076,7 +1023,7 @@
 
             // Default to a 1-pixel black texture so we can safely render while we wait for an image to load
             // See: http://stackoverflow.com/questions/19722247/webgl-wait-for-texture-to-load
-            this.setData(1, 1, new Uint8Array([0, 0, 0, 255]), { filtering: 'linear' });
+            this.setData(1, 1, new Uint8Array([0, 0, 0, 255]), {filtering: 'linear'});
             this.setFiltering(options.filtering);
 
             this.load(options);
@@ -1490,6 +1437,7 @@
             }, false);
 
             var sandbox = this;
+
             function RenderLoop() {
                 if (sandbox.nMouse > 1) {
                     sandbox.setMouse(mouse);
@@ -1504,7 +1452,7 @@
             }
 
             // Start
-            this.setMouse({ x: 0, y: 0 });
+            this.setMouse({x: 0, y: 0});
             RenderLoop();
             return this;
         }
@@ -1636,6 +1584,7 @@
                 ext.endQueryEXT(ext.TIME_ELAPSED_EXT);
 
                 var sandbox = this;
+
                 function finishTest() {
                     // Revert changes... go back to normal
                     sandbox.paused = pre_test_paused;
@@ -1643,6 +1592,7 @@
                         sandbox.load(pre_test_frag, pre_test_vert);
                     }
                 }
+
                 function waitForTest() {
                     sandbox.forceRender = true;
                     sandbox.render();
@@ -1661,6 +1611,7 @@
                         window.requestAnimationFrame(waitForTest);
                     }
                 }
+
                 waitForTest();
             }
         }, {
