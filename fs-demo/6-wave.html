@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>line</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/code.min.js"></script>
+</head>
+<body>
+<canvas id="glslCanvas"  width="800" height="600" data-textures="data/moon.jpg"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var fs = `
+  #ifdef GL_ES
+  precision mediump float;
+  #endif
+
+  uniform vec2 u_resolution;
+  uniform vec2 u_mouse;
+  uniform float u_time;
+
+  void main() {
+    vec2 st = gl_FragCoord.xy/u_resolution;
+    
+    gl_FragColor = vec4(0.0,0.0,0.0,1.0);
+  }`;
+  sandbox.load(fs);
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+  let st,u_mouse;
+</script>
+</body>
+</html>
