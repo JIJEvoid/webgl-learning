@@ -104,7 +104,7 @@
       <workItem from="1579486010576" duration="84000" />
       <workItem from="1597199645824" duration="8070000" />
       <workItem from="1597298663364" duration="5407000" />
-      <workItem from="1597371127249" duration="713000" />
+      <workItem from="1597371127249" duration="3345000" />
     </task>
     <task id="LOCAL-00002" summary="水波">
       <created>1572952555325</created>
@@ -176,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597385159868</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="画线">
+      <created>1597385343444</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1597385343444</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +220,7 @@
     <MESSAGE value="造型函数" />
     <MESSAGE value="纹理" />
     <MESSAGE value="混合" />
-    <option name="LAST_COMMIT_MESSAGE" value="混合" />
+    <MESSAGE value="画线" />
+    <option name="LAST_COMMIT_MESSAGE" value="画线" />
   </component>
 </project>

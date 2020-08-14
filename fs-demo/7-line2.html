@@ -15,16 +15,17 @@
         uniform float u_time;
     
         float plot(vec2 st){
-            return smoothstep(0.01,0.0,abs(st.y-st.x*st.x));
+            st.x/=0.02;
+            st.x+=u_time*10.;
+            st.y/=0.2;
+            st.y-=2.5;
+            return smoothstep(0.04,0.0,abs(st.y-cos(st.x)));
         }
     
         void main() {
             vec2 st = gl_FragCoord.xy/u_resolution;
-            float y = st.y*st.y;
-            //vec3 color = vec3(y,y,y);
-        
             float pct = plot(st);
-            vec3 color = pct * vec3(1.0,1.0,1.0);
+            vec3 color = pct * vec3(0.,0.,.6);
             gl_FragColor = vec4(color,1.0);
         }
     </script>
