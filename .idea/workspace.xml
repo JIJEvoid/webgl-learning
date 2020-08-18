@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3addcb0-dbf6-47d3-bb5f-2728f9134917" name="默认更改列表" comment="">
+    <list default="true" id="f3addcb0-dbf6-47d3-bb5f-2728f9134917" name="默认更改列表" comment="画线">
+      <change afterPath="$PROJECT_DIR$/fs-demo/8-color.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs-demo/7-line2.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/7-line2.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,10 +15,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="threeJsTemp" />
-        <option value="HTML File" />
         <option value="THREEJS File" />
         <option value="GLSL HTML" />
         <option value="GLSL Shader" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -42,7 +42,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -104,7 +104,8 @@
       <workItem from="1579486010576" duration="84000" />
       <workItem from="1597199645824" duration="8070000" />
       <workItem from="1597298663364" duration="5407000" />
-      <workItem from="1597371127249" duration="3345000" />
+      <workItem from="1597371127249" duration="8944000" />
+      <workItem from="1597653222021" duration="2474000" />
     </task>
     <task id="LOCAL-00002" summary="水波">
       <created>1572952555325</created>
@@ -183,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597385343444</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="画线">
+      <created>1597390366974</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1597390366974</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
