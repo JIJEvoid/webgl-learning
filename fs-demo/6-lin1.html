@@ -24,7 +24,9 @@
             vec3 color = vec3(y,y,y);
         
             float pct = plot(st);
+            float pct1 = plot(vec2(st.x-sin(u_time*0.08),st.y));
             color = pct * vec3(.0,1.0,.0);
+            color += pct1 * vec3(1.0,1.0,.0);
             gl_FragColor = vec4(color,1.0);
         }
 

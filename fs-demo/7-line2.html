@@ -25,7 +25,12 @@
         void main() {
             vec2 st = gl_FragCoord.xy/u_resolution;
             float pct = plot(st);
-            vec3 color = pct * vec3(0.,0.,.6);
+            vec2 st1 = vec2(st.x-0.05,st.y);
+            float pct1 = plot(st1);
+            vec3 color = pct * vec3(1.,0.,.6);
+            color += pct1 * vec3(1.,0.,.6);
+            color += pct1 * vec3(1.,0.,.6);
+            color += pct1 * vec3(1.,0.,.6);
             gl_FragColor = vec4(color,1.0);
         }
     </script>
