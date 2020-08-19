@@ -25,7 +25,7 @@
     
             // To create the BG pattern
             vec3 final_color = vec3(1.0);
-            vec3 bg_color = vec3(0.0);
+            vec3 bg_color = vec3(1.0);
             vec3 wave_color = vec3(0.0);
     
             float c1 = mod(uv.x, 2.0 * BLOCK_WIDTH);
@@ -41,15 +41,15 @@
             uv.y += 0.1;
 //            uv.x/=.75;
             for(float i = 0.0; i < 3.0; i++) {
-        
+                
                 uv.y += (0.07 * sin(uv.x + i/7.0 + u_time*3.0 ))*3.0;
                 wave_width = abs(1.0 / (250.0 * uv.y));
 //              wave_color += vec3(wave_width * 1.9, wave_width, wave_width * 1.5);
-                wave_color += vec3(wave_width*sin(u_time)*1.,0.,wave_width*0.5);
+                wave_color += vec3(wave_width*sin(u_time)*5.,0.,wave_width*0.5);
             
             }
     
-            final_color = bg_color + wave_color;
+            final_color = (bg_color + wave_color)-vec3(1.);
             
             gl_FragColor = vec4(final_color, 1.0);
         }
