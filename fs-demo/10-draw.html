@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>line</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script id="shader" type="x-shader/x-fragment">
+        
+        #ifdef GL_ES
+        precision mediump float;
+        #endif
+
+        uniform vec2 u_resolution;
+
+        void main(){
+            vec2 st = gl_FragCoord.xy/u_resolution.xy;
+            vec3 color = vec3(0.0);
+    
+            // Each result will return 1.0 (white) or 0.0 (black).
+            float left = step(0.1,st.x);   // Similar to ( X greater than 0.1 )
+            float bottom = step(0.1,st.y); // Similar to ( Y greater than 0.1 )
+            float top = 1.-step(0.9,st.x); // Similar to ( Y greater than 0.1 )
+            float right = 1.-step(0.9,st.y); // Similar to ( Y greater than 0.1 )
+    
+            // The multiplication of left*bottom will be similar to the logical AND.
+            color = vec3( left * bottom * top * right);
+    
+            gl_FragColor = vec4(color,1.0);
+        }
+    
+  </script>
+  <script type="text/javascript" src="js/code.min.js"></script>
+
+</head>
+<body>
+<canvas id="glslCanvas" width="800" height="600" data-textures="data/moon.jpg"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var fs = document.querySelector('#shader').innerHTML;
+  sandbox.load(fs);
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+</script>
+</body>
+</html>
