@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3addcb0-dbf6-47d3-bb5f-2728f9134917" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/fs-demo/data/bg.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs-demo/10-draw.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/10-draw.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +36,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fs-demo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fs-demo/data" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -46,8 +46,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/fs-demo" />
       <recent name="$PROJECT_DIR$/fs-demo/data" />
+      <recent name="$PROJECT_DIR$/fs-demo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -106,7 +106,9 @@
       <workItem from="1597298663364" duration="5407000" />
       <workItem from="1597371127249" duration="8944000" />
       <workItem from="1597653222021" duration="23456000" />
-      <workItem from="1597890148800" duration="13116000" />
+      <workItem from="1597890148800" duration="13325000" />
+      <workItem from="1598844598343" duration="13000" />
+      <workItem from="1603173732715" duration="2739000" />
     </task>
     <task id="LOCAL-00002" summary="水波">
       <created>1572952555325</created>
@@ -248,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597910764787</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add">
+      <created>1598407994940</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1598407994940</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
