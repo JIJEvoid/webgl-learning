@@ -26,9 +26,10 @@
 //        }
         
         // type2 水波
-        vec3 params = vec3(10.0, 0.8, 0.1);
+        vec3 params = vec3(10.0, 0.1, 0.1);
         vec2 center = vec2(0.5, .5);
-        float time = sin(u_time/2.);
+        
+        float time =u_time - floor(u_time);
         void main()
         {
             vec2 st = gl_FragCoord.xy/u_resolution;
