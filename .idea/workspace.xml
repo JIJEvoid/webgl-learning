@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3addcb0-dbf6-47d3-bb5f-2728f9134917" name="默认更改列表" comment="add">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="f3addcb0-dbf6-47d3-bb5f-2728f9134917" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fs-demo/11-maskShader.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/11-maskShader.html" afterDir="false" />
     </list>
@@ -109,7 +108,7 @@
       <workItem from="1597653222021" duration="23456000" />
       <workItem from="1597890148800" duration="13325000" />
       <workItem from="1598844598343" duration="13000" />
-      <workItem from="1603173732715" duration="4260000" />
+      <workItem from="1603173732715" duration="6396000" />
     </task>
     <task id="LOCAL-00002" summary="水波">
       <created>1572952555325</created>
@@ -272,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603178143544</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="add">
+      <created>1603178814425</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1603178814425</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

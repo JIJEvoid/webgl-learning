@@ -17,34 +17,34 @@
         uniform sampler2D u_tex0;
 
 //      type 1 反光
-//        void main(void) {
-//            vec4 vColor = vec4(1.0,1.0,1.0,1.0);
-//            vec2 st = gl_FragCoord.xy/u_resolution;
-//            vec4 fg = texture2D(u_tex0, st);
-//            fg.rgb += sin(u_time*3.+ st.x * 2. + st.y * 2.) * 0.2;
-//            gl_FragColor = fg * vColor;
-//        }
+        void main(void) {
+            vec4 vColor = vec4(1.0,1.0,1.0,1.0);
+            vec2 st = gl_FragCoord.xy/u_resolution;
+            vec4 fg = texture2D(u_tex0, st);
+            fg.rgb += sin(u_time*3.+ st.x * 2. + st.y * 2.) * 0.2;
+            gl_FragColor = fg * vColor;
+        }
         
         // type2 水波
-        vec3 params = vec3(10.0, 0.1, 0.1);
-        vec2 center = vec2(0.5, .5);
-        
-        float time =u_time - floor(u_time);
-        void main()
-        {
-            vec2 st = gl_FragCoord.xy/u_resolution;
-            vec2 texCoord = st;
-            float dist = distance(st, center);
-            if ( (dist <= (time + params.z)) && (dist >= (time - params.z)) )
-            {
-                float diff = (dist - time);
-                float powDiff = 1.0 - pow(abs(diff*params.x), params.y);
-                float diffTime = diff  * powDiff;
-                vec2 diffUV = normalize(st - center);
-                texCoord = st + (diffUV * diffTime);
-            }
-            gl_FragColor = texture2D(u_tex0, texCoord);
-        }
+//        vec3 params = vec3(10.0, 0.1, 0.1);
+//        vec2 center = vec2(0.5, .5);
+//
+//        float time =u_time - floor(u_time);
+//        void main()
+//        {
+//            vec2 st = gl_FragCoord.xy/u_resolution;
+//            vec2 texCoord = st;
+//            float dist = distance(st, center);
+//            if ( (dist <= (time + params.z)) && (dist >= (time - params.z)) )
+//            {
+//                float diff = (dist - time);
+//                float powDiff = 1.0 - pow(abs(diff*params.x), params.y);
+//                float diffTime = diff  * powDiff;
+//                vec2 diffUV = normalize(st - center);
+//                texCoord = st + (diffUV * diffTime);
+//            }
+//            gl_FragColor = texture2D(u_tex0, texCoord);
+//        }
         
   </script>
   <script type="text/javascript" src="js/code.min.js"></script>
