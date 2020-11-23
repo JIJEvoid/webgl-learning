@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3addcb0-dbf6-47d3-bb5f-2728f9134917" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/fs-demo/12-stroke.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fs-demo/11-maskShader.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/11-maskShader.html" afterDir="false" />
     </list>
@@ -18,6 +19,7 @@
         <option value="THREEJS File" />
         <option value="GLSL Shader" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="GLSL HTML" />
       </list>
     </option>
@@ -42,7 +44,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -108,7 +110,9 @@
       <workItem from="1597653222021" duration="23456000" />
       <workItem from="1597890148800" duration="13325000" />
       <workItem from="1598844598343" duration="13000" />
-      <workItem from="1603173732715" duration="6396000" />
+      <workItem from="1603173732715" duration="8764000" />
+      <workItem from="1605688478193" duration="3516000" />
+      <workItem from="1605774865880" duration="7791000" />
     </task>
     <task id="LOCAL-00002" summary="水波">
       <created>1572952555325</created>
@@ -278,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603178814425</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="add">
+      <created>1603182805722</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1603182805722</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

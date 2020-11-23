@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>line</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script id="shader" type="x-shader/x-fragment">
+      #ifdef GL_ES
+      precision highp float;
+      #endif
+    
+      uniform sampler2D u_tex0;
+    
+      uniform vec2 u_resolution;
+      uniform vec2 u_tex0Resolution;
+
+      uniform vec2 u_mouse;
+      uniform float u_time;
+    
+      // Author: Matt DesLauriers
+      // https://github.com/mattdesl/glsl-lut/blob/master/index.glsl
+      //
+      vec3 texsample( float x,  float y, in vec2 st)
+      {
+          vec2 uv = (st.xy+ vec2(x, y))/ u_resolution.xy;
+//          uv = (uv) / st.xy;
+          return texture2D(u_tex0, uv).rgb;
+      }
+
+      vec3 count(vec2 st)
+      {
+          vec3 sum = texsample(-1., -1., st) * -1.
+          + texsample(-1.,  0., st) * -1.
+          + texsample(-1.,  1., st) * -1.
+          + texsample( 0., -1., st) * -1.
+          + texsample( 0.,  0., st) *  9.
+          + texsample( 0.,  1., st) * -1.
+          + texsample( 1., -1., st) * -1.
+          + texsample( 1.,  0., st) * -1.
+          + texsample( 1.,  1., st) * -1.;
+    
+          return sum;
+      }
+
+      void main()
+      {
+          gl_FragColor = vec4(count(gl_FragCoord.xy),1.0);
+//          gl_FragColor = vec4(1.0,1.0,1.0,1.0);
+      }
+      
+  </script>
+  <script type="text/javascript" src="js/code.min.js"></script>
+
+</head>
+<body>
+<canvas id="glslCanvas" width="800" height="600" data-textures="data/image.jpg"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var fs = document.querySelector('#shader').innerHTML;
+  sandbox.load(fs);
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+</script>
+</body>
+</html>
