@@ -16,10 +16,7 @@
 
       uniform vec2 u_mouse;
       uniform float u_time;
-    
-      // Author: Matt DesLauriers
-      // https://github.com/mattdesl/glsl-lut/blob/master/index.glsl
-      //
+      
       vec3 texsample( float x,  float y, in vec2 st)
       {
           vec2 uv = (st.xy+ vec2(x, y))/ u_resolution.xy;
@@ -29,15 +26,15 @@
 
       vec3 count(vec2 st)
       {
-          vec3 sum = texsample(-1., -1., st) * -1.
-          + texsample(-1.,  0., st) * -1.
-          + texsample(-1.,  1., st) * -1.
-          + texsample( 0., -1., st) * -1.
-          + texsample( 0.,  0., st) *  9.
-          + texsample( 0.,  1., st) * -1.
-          + texsample( 1., -1., st) * -1.
-          + texsample( 1.,  0., st) * -1.
-          + texsample( 1.,  1., st) * -1.;
+          vec3 sum = texsample(-1., -1., st) * -2.
+          + texsample(-1.,  0., st) *-2.
+          + texsample(-1.,  1., st) *-2.
+          + texsample( 0., -1., st) *-2.
+          + texsample( 0.,  0., st) *  17.
+          + texsample( 0.,  1., st) *-2.
+          + texsample( 1., -1., st) *-2.
+          + texsample( 1.,  0., st) * -2.
+          + texsample( 1.,  1., st) *-2.;
     
           return sum;
       }
@@ -53,7 +50,7 @@
 
 </head>
 <body>
-<canvas id="glslCanvas" width="800" height="600" data-textures="data/image.jpg"></canvas>
+<canvas id="glslCanvas" width="800" height="600" data-textures="data/gouzi.jpg"></canvas>
 
 <script>
   var canvas = document.getElementById("glslCanvas");
