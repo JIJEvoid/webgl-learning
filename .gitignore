@@ -1,5 +1,7 @@
 .idea/*
 .idea
+/.idea/
+
 demo1/utils/
 *.xml
 /.git/
