@@ -20,7 +20,7 @@
             vec2 st = gl_FragCoord.xy/u_resolution;
             vec4 color = texture2D(u_tex0, st);
             vec4 dcolor = texture2D(u_tex1, st);
-            float alpha = 1.0 - step(float(u_time*10.) / 100.0, dcolor.r);
+            float alpha = 1.0 - step(float(u_time*10.) / 100.0, dcolor.g);
             
             gl_FragColor = vec4(color.rgb * alpha, 1.0);
         }
@@ -30,7 +30,7 @@
 
 </head>
 <body>
-<canvas id="glslCanvas" width="800" height="600" data-textures="data/image.jpg,data/noise1.jpg"></canvas>
+<canvas id="glslCanvas" width="800" height="600" data-textures="data/image.jpg,data/noise1.png"></canvas>
 
 <script>
   var canvas = document.getElementById("glslCanvas");
