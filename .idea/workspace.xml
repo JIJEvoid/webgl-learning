@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fada6f61-6277-4f14-a33b-92d4b923f7cf" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/fs-demo/16-textureFlip.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs-demo/15-xiangsu.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/15-xiangsu.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +79,8 @@
       <option name="presentableId" value="Default" />
       <updated>1606289988852</updated>
       <workItem from="1606289990427" duration="2652000" />
-      <workItem from="1606806467213" duration="2838000" />
+      <workItem from="1606806467213" duration="4038000" />
+      <workItem from="1607321860835" duration="8768000" />
     </task>
     <task id="LOCAL-00003" summary="add">
       <created>1606807769023</created>
@@ -88,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606807769023</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add">
+      <created>1606810608411</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606810608411</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

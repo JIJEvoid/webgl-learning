@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>line</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script id="shader" type="x-shader/x-fragment">
+        
+        #ifdef GL_ES
+        precision mediump float;
+        #endif
+    
+        uniform vec2 u_resolution;
+        uniform vec2 u_mouse;
+        uniform float time;
+        uniform sampler2D u_texture0;
+        uniform sampler2D u_texture1;
+        
+        const float perWidth = 0.1;
+        const float rspeed = 1.1;
+
+        void main()
+        {
+            vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    
+            float index = floor( uv.x / perWidth );
+            
+            float perRotateTime = 3.14159 / rspeed;
+            float startRotateTime = perRotateTime * 0.5 * index;
+            float endRotateTime = startRotateTime + perRotateTime;
+            float centerX = perWidth * ( index + 0.5 );
+            float angle = (time - startRotateTime) * rspeed;
+            vec2 cod = vec2(( uv.x - centerX) / cos( angle ) + centerX, uv.y );
+    
+            float left = perWidth * index;
+            float right = left + perWidth;
+            
+            if( time <= startRotateTime ) {
+                gl_FragColor = texture2D( u_texture0, uv );
+            }
+            else if( time > endRotateTime ) {
+                gl_FragColor = texture2D( u_texture1, uv );
+            }
+            else if( cod.x <= right && cod.x >= left ) {
+                
+                if( angle <= 1.5707 ) {
+                    gl_FragColor = texture2D( u_texture0, cod );
+                } else{
+                    gl_FragColor = texture2D( u_texture1, vec2( right - cod.x + left, cod.y ) );
+                }
+            } else {
+                gl_FragColor = vec4( vec3( 0.0 ), 1.0 );
+            }
+        }
+    
+  </script>
+  <script type="text/javascript" src="js/code.min.js"></script>
+
+</head>
+<body>
+<canvas id="glslCanvas" width="800" height="600" data-textures="data/moon.jpg,data/bg.jpg,data/juzi.jpg"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var img1 = "data/moon.jpg";
+  var img2 = "data/bg.jpg";
+  sandbox.setUniform("u_texture0",img1);
+  sandbox.setUniform("u_texture1",img2);
+  var fs = document.querySelector('#shader').innerHTML;
+  sandbox.load(fs);
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+  
+  var time = 0.;
+  var over = false;
+  var state = 0;
+ 
+  function render() {
+    time+=0.1;
+    sandbox.setUniform("time",time);
+  }
+
+  function animate( now ) {
+    if(over) return;
+    over = time>=30?true:false;
+    requestAnimationFrame( animate );
+    render();
+  }
+  
+  function a(){
+    time = 0;
+    over = false;
+    img1 = 'data/juzi.jpg';
+    sandbox.setUniform("u_texture0",img1);
+    sandbox.setUniform("u_texture1",img2);
+  }
+  
+  animate();
+  
+</script>
+</body>
+</html>
