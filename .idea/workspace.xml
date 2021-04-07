@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fada6f61-6277-4f14-a33b-92d4b923f7cf" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/fs-demo/16-textureFlip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fs-demo/data/noise2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thessjs-demo/earth.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thessjs-demo/libs/earthData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thessjs-demo/libs/three.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thessjs-demo/libs/threeGeoJson.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thessjs-demo/libs/trackballControls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fs-demo/noise-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/noise-1.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,21 +22,41 @@
       <list>
         <option value="THREEJS File" />
         <option value="GLSL HTML" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="ProjectId" id="1klzVR6XMVDrDsuyIuymU0c8BVL" />
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/thessjs-demo/libs" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.jscs" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/thessjs-demo/libs" />
+      <recent name="$PROJECT_DIR$/fs-demo/data" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -80,7 +106,10 @@
       <updated>1606289988852</updated>
       <workItem from="1606289990427" duration="2652000" />
       <workItem from="1606806467213" duration="4038000" />
-      <workItem from="1607321860835" duration="8768000" />
+      <workItem from="1607321860835" duration="12188000" />
+      <workItem from="1608020719846" duration="2289000" />
+      <workItem from="1608102997895" duration="1293000" />
+      <workItem from="1617774486079" duration="2646000" />
     </task>
     <task id="LOCAL-00003" summary="add">
       <created>1606807769023</created>
@@ -96,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606810608411</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add">
+      <created>1607331751795</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607331751795</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +152,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="add" />
     <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
