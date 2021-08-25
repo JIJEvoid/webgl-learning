@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fada6f61-6277-4f14-a33b-92d4b923f7cf" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/fs-demo/data/noise2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thessjs-demo/earth.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thessjs-demo/libs/earthData.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thessjs-demo/libs/three.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thessjs-demo/libs/threeGeoJson.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thessjs-demo/libs/trackballControls.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fs-demo/17-fitler.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs-demo/noise-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/noise-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/js/12_texture.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/js/12_texture.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,9 +17,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="THREEJS File" />
-        <option value="GLSL HTML" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="GLSL HTML" />
       </list>
     </option>
   </component>
@@ -53,6 +49,9 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fs-demo" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/thessjs-demo/libs" />
       <recent name="$PROJECT_DIR$/fs-demo/data" />
@@ -109,7 +108,11 @@
       <workItem from="1607321860835" duration="12188000" />
       <workItem from="1608020719846" duration="2289000" />
       <workItem from="1608102997895" duration="1293000" />
-      <workItem from="1617774486079" duration="2646000" />
+      <workItem from="1617774486079" duration="3586000" />
+      <workItem from="1617781864119" duration="2410000" />
+      <workItem from="1619517222314" duration="7788000" />
+      <workItem from="1619663672021" duration="391000" />
+      <workItem from="1620353075961" duration="1228000" />
     </task>
     <task id="LOCAL-00003" summary="add">
       <created>1606807769023</created>
@@ -132,7 +135,21 @@
       <option name="project" value="LOCAL" />
       <updated>1607331751795</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add">
+      <created>1617778569798</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617778569798</updated>
+    </task>
+    <task id="LOCAL-00007" summary="del">
+      <created>1617778598831</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617778598831</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +172,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="add" />
-    <option name="LAST_COMMIT_MESSAGE" value="add" />
+    <MESSAGE value="del" />
+    <option name="LAST_COMMIT_MESSAGE" value="del" />
   </component>
 </project>
