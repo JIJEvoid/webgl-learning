@@ -24,7 +24,7 @@
             vec4 fg1 = texture2D(u_tex1, st);
 //            vec4 real = vec4(fg.r*sin(u_time)+(1.-sin(u_time)*fg1.r),fg.g*sin(u_time)+(1.-sin(u_time)*fg1.g),fg.b*sin(u_time)+(1.-sin(u_time)*fg1.b),1.0);
 //            vec4 real = vec4(sin(time)*fg.rba,1.0);
-            gl_FragColor = vec4((fg1.rgb-fg.rgb)*2.*sin(time),1.);
+            gl_FragColor = vec4((fg.rgb-fg1.rgb)*2.*sin(time),1.);
         }
     
   </script>
