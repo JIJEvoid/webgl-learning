@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>line</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script id="shader" type="x-shader/x-fragment">
+        
+        #ifdef GL_ES
+        precision mediump float;
+        #endif
+    
+        uniform vec2 u_resolution;
+        uniform vec2 u_mouse;
+        uniform float u_time;
+        uniform sampler2D u_tex0;
+        uniform sampler2D u_tex1;
+        
+    
+        void main() {
+            float time  = 0.4*u_time;
+            vec2 st = gl_FragCoord.xy/u_resolution;
+            vec4 fg = texture2D(u_tex0, st);
+            vec4 fg1 = texture2D(u_tex1, st);
+//            vec4 real = vec4(fg.r*sin(u_time)+(1.-sin(u_time)*fg1.r),fg.g*sin(u_time)+(1.-sin(u_time)*fg1.g),fg.b*sin(u_time)+(1.-sin(u_time)*fg1.b),1.0);
+//            vec4 real = vec4(sin(time)*fg.rba,1.0);
+            gl_FragColor = vec4((fg1.rgb-fg.rgb)*2.*sin(time),1.);
+        }
+    
+  </script>
+  <script type="text/javascript" src="js/code.min.js"></script>
+
+</head>
+<body>
+<canvas id="glslCanvas" width="800" height="600" data-textures="img/bg1.jpeg,img/bg2.jpeg"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var fs = document.querySelector('#shader').innerHTML;
+  sandbox.load(fs);
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+</script>
+</body>
+</html>
