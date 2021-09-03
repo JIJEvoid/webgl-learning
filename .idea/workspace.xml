@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fada6f61-6277-4f14-a33b-92d4b923f7cf" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/fs-demo/19-textureChange.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs-demo/18-texturemix.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/18-texturemix.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fs-demo/16-textureFlip.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/16-textureFlip.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +35,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fs-demo/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fs-demo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -47,13 +48,14 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fs-demo" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fs-demo" />
       <recent name="$PROJECT_DIR$/fs-demo/img" />
       <recent name="$PROJECT_DIR$/thessjs-demo/libs" />
       <recent name="$PROJECT_DIR$/fs-demo/data" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/fs-demo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -113,7 +115,8 @@
       <workItem from="1619663672021" duration="391000" />
       <workItem from="1620353075961" duration="1228000" />
       <workItem from="1629874891036" duration="1597000" />
-      <workItem from="1630391816093" duration="4707000" />
+      <workItem from="1630391816093" duration="6096000" />
+      <workItem from="1630635089308" duration="5937000" />
     </task>
     <task id="LOCAL-00003" summary="add">
       <created>1606807769023</created>
@@ -164,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630394169061</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add">
+      <created>1630409237889</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1630409237889</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
