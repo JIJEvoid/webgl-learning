@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>line</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script id="shader" type="x-shader/x-fragment">
+        
+        #ifdef GL_ES
+        precision mediump float;
+        #endif
+    
+        uniform vec2 u_resolution;
+        uniform vec2 u_tex0Resolution;
+        uniform sampler2D u_tex0;
+        uniform float u_scan;
+        uniform float u_scanY;
+        uniform float u_colorDrift;
+        uniform float u_time;
+        /*
+         工具函数
+        */
+        float hash21 (float x, float y) {
+            return fract (sin (dot (vec2 (x, y), vec2 (12.9898, 78.233))) * 43758.5453);
+        }
+        void main () {
+            vec2 uv = gl_FragCoord.xy/u_resolution;
+            vec2 uv1 = gl_FragCoord.xy/u_tex0Resolution;
+            vec2 bili = u_resolution/u_tex0Resolution;
+            // Color drift
+//            float drift = sin ( u_time) * u_colorDrift * .04;
+            float drift = 0.03;
+            // Offset
+            vec2 offset = vec2(drift,.0);
+            vec4 color1 = texture2D (u_tex0, uv1*bili.x);
+            vec4 color2 = texture2D (u_tex0, uv1*bili.y - offset);
+            gl_FragColor = vec4 (color1.r, color2.g, color1.b, 1.0);
+        }
+      
+  </script>
+  <script type="text/javascript" src="js/code.min.js"></script>
+
+</head>
+<body>
+<canvas id="glslCanvas" width="800" height="600" data-textures="data/bg.jpg"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var fs = document.querySelector('#shader').innerHTML;
+  sandbox.load(fs);
+  sandbox.setUniform("u_scan",0.1);
+  sandbox.setUniform("u_scanY",0.1);
+  sandbox.setUniform("u_colorDrift",1.0);
+  
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+</script>
+</body>
+</html>
