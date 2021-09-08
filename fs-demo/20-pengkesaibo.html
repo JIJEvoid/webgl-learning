@@ -23,11 +23,14 @@
         float hash21 (float x, float y) {
             return fract (sin (dot (vec2 (x, y), vec2 (12.9898, 78.233))) * 43758.5453);
         }
+        float hash11 (float a) {
+            return fract (sin (a * 0.12311) * 45678.122);
+        }
         void main () {
             vec2 uv = gl_FragCoord.xy/u_resolution;
             float y = floor(uv.y*100.)/50.; //马赛克风格
             float jitter = hash21 (y, .0) * 2. - 1.;
-            vec2 offset =  (vec2 (uv.x + jitter*(10.-u_time)*.03, uv.y));
+            vec2 offset =  (vec2 (uv.x + jitter*(hash11(u_time/100.))*u_scan, uv.y));
             vec4 color = texture2D (u_tex0, offset);
             vec4 color1 = texture2D (u_tex0, uv);
             color1 = vec4(color1.r,0.,0.,1.0);
@@ -46,7 +49,7 @@
   var sandbox = new GlslCanvas(canvas);
   var fs = document.querySelector('#shader').innerHTML;
   sandbox.load(fs);
-  sandbox.setUniform("u_scan",0.1);
+  sandbox.setUniform("u_scan",0.01);
   sandbox.setUniform("u_scanY",0.1);
   sandbox.setUniform("u_colorDrift",1.0);
   
