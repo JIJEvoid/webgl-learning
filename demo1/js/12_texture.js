@@ -6,14 +6,15 @@ let vs = 'attribute vec4 a_Position;\n'+
         'attribute vec2 a_TexCoord;\n'+
         'varying vec2 v_TexCoord;\n'+
         'void main(){\n'+
-        ' gl_Position = a_Position;\n'+
         ' v_TexCoord= a_TexCoord;\n'+
+        ' gl_Position = a_Position;\n'+
         '}\n';
 
 let fs = 'precision mediump float;\n uniform sampler2D u_Sampler;\n'+
         'varying vec2 v_TexCoord;\n'+
         'void main(){\n' +
-        'gl_FragColor = texture2D(u_Sampler,v_TexCoord);\n'+
+        'vec4 color = texture2D(u_Sampler,v_TexCoord);\n'+
+        'gl_FragColor = vec4(color.rb,0.,1.);\n'+
         '}\n';
 
 function main() {
@@ -27,7 +28,6 @@ function main() {
     if (initTextures(gl,n)){
 
     }
-
 }
 
 function initVertexBuffer(gl) {
@@ -59,10 +59,10 @@ function initTextures(gl,n) {
     var texture = gl.createTexture();
     var u_Sampler =  gl.getUniformLocation(gl.program, 'u_Sampler');
 
-    var image = new Image()
+    var image = new Image();
     image.onload =()=>{
         loadTexture(gl, n, texture,u_Sampler,image);
-    }
+    };
     image.src = './img/timg.jpeg';
     // image.src = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565017785448&di=7365f2011a485217c07cb2c720162e58&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201407%2F13%2F20140713132908_rx38t.thumb.700_0.jpeg';
 }

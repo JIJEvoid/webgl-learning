@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fada6f61-6277-4f14-a33b-92d4b923f7cf" name="默认更改列表" comment="">
+    <list default="true" id="fada6f61-6277-4f14-a33b-92d4b923f7cf" name="默认更改列表" comment="add">
+      <change afterPath="$PROJECT_DIR$/fs-demo/22-blackWhiteMask.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fs-demo/data/close_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fs-demo/img/bg3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs-demo/20-pengkesaibo.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/20-pengkesaibo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/js/12_texture.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/js/12_texture.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,14 +18,19 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="THREEJS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="GLSL HTML" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -34,7 +42,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fs-demo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fs-demo/img" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -44,17 +52,18 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="configurable.stylesheets" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/fs-demo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/fs-demo" />
       <recent name="$PROJECT_DIR$/fs-demo/img" />
-      <recent name="$PROJECT_DIR$/thessjs-demo/libs" />
       <recent name="$PROJECT_DIR$/fs-demo/data" />
+      <recent name="$PROJECT_DIR$/fs-demo" />
+      <recent name="$PROJECT_DIR$/thessjs-demo/libs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -116,7 +125,10 @@
       <workItem from="1629874891036" duration="1597000" />
       <workItem from="1630391816093" duration="6096000" />
       <workItem from="1630635089308" duration="17641000" />
-      <workItem from="1631067417223" duration="2398000" />
+      <workItem from="1631067417223" duration="3609000" />
+      <workItem from="1631079632652" duration="2542000" />
+      <workItem from="1631257749658" duration="7506000" />
+      <workItem from="1632300536986" duration="3207000" />
     </task>
     <task id="LOCAL-00003" summary="add">
       <created>1606807769023</created>
@@ -216,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631068442923</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add">
+      <created>1631070132308</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1631070132308</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

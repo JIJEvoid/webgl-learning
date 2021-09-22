@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="pragram" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>line</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script id="shader" type="x-shader/x-fragment">
+        
+        #ifdef GL_ES
+        precision mediump float;
+        #endif
+    
+        uniform vec2 u_resolution;
+        uniform vec2 u_mouse;
+        uniform float u_time;
+        uniform sampler2D u_tex0;
+        
+    
+        void main() {
+            vec2 st = gl_FragCoord.xy/u_resolution;
+            vec4 color1 = texture2D (u_tex0, st);
+            gl_FragColor = vec4(color1.r,0.,0.,1.);
+        }
+    
+  </script>
+  <script type="text/javascript" src="js/code.min.js"></script>
+
+</head>
+<body>
+<canvas id="glslCanvas" width="800" height="600" data-textures="data/close_icon.png"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var fs = document.querySelector('#shader').innerHTML;
+  sandbox.load(fs);
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+</script>
+</body>
+</html>

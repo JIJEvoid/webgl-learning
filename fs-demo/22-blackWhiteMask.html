@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="pragram" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>line</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script id="shader" type="x-shader/x-fragment">
+    
+      #ifdef GL_ES
+      precision mediump float;
+      #endif
+    
+      uniform vec2 u_resolution;
+      uniform vec2 u_mouse;
+      uniform float u_time;
+      uniform sampler2D u_tex0;
+    
+      const float MinMixValue = 135.;
+      float MinBetweenValue1 = 10.;
+      
+      void main() {
+          vec2 st = gl_FragCoord.xy/u_resolution;
+          vec4 color = texture2D (u_tex0, st);
+          // 对临近像素进行比对
+          vec4 hcolor = texture2D (u_tex0, vec2(gl_FragCoord.x,gl_FragCoord.y-1.)/u_resolution);
+          vec4 wcolor = texture2D (u_tex0, vec2(gl_FragCoord.x-1.,gl_FragCoord.y)/u_resolution);
+          vec4 color1;
+    
+//          float MinBetweenValue = abs(MinBetweenValue1*sin(u_time*0.1));
+          float MinBetweenValue = MinBetweenValue1;
+          
+          if(abs(color.r+color.g+color.b - (wcolor.r+wcolor.g+wcolor.b)) > MinBetweenValue/255.||(color.r+color.g+color.b) < MinMixValue/255.){
+              color1 = vec4(0.0,0.0,0.0,1.0);
+          }else{
+              color1 = vec4(1.0);
+          }
+          if(abs(color.r+color.g+color.b - (hcolor.r+hcolor.g+hcolor.b)) > MinBetweenValue/255.||(color.r+color.g+color.b) < MinMixValue/255.){
+              color1 =vec4(0.0,0.0,0.0,1.0);
+          }else{
+              color1 = vec4(1.0);
+          }
+          gl_FragColor = color1;
+      }
+    
+  </script>
+  <script type="text/javascript" src="js/code.min.js"></script>
+
+</head>
+<body>
+<canvas id="glslCanvas" width="800" height="600" data-textures="img/bg3.jpg"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var fs = document.querySelector('#shader').innerHTML;
+  sandbox.load(fs);
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+</script>
+</body>
+</html>
