@@ -14,7 +14,7 @@ let fs = 'precision mediump float;\n uniform sampler2D u_Sampler;\n'+
         'varying vec2 v_TexCoord;\n'+
         'void main(){\n' +
         'vec4 color = texture2D(u_Sampler,v_TexCoord);\n'+
-        'gl_FragColor = vec4(color.rb,0.,1.);\n'+
+        'gl_FragColor = vec4(color.rgb,1.);\n'+
         '}\n';
 
 function main() {
@@ -33,10 +33,10 @@ function main() {
 function initVertexBuffer(gl) {
     //指定图片位置
     var verticesTexCoords = new Float32Array([
-        -1.0,1.,0.0,1.0,
-        -1.,-1.,0.0,0.0,
-        1.,1.,1.0,1.0,
-        1.,-1.,1.0,0.0
+        -1.0,1.0,0.0,1.0,
+        -1.0,-1.0,0.0,0.0,
+        1.0,1.0,1.0,1.0,
+        1.0,-1.0,1.0,0.0
     ]);
     var n = 4;
     var vertexTexCoordBuffer = gl.createBuffer();
@@ -73,16 +73,15 @@ function loadTexture(gl, n, texture,u_Sampler,image) {
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D,texture);
 
-    //配置纹理参数
+    // 配置纹理参数
     gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
     // webgl设置图形纹理的时候，在设置水平和垂直如何填充的时候，设置成水平和垂直拉伸, 由于图片不是 2 的 幂数
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,image);
-
+    //
     gl.uniform1i(u_Sampler,0);
-
     gl.drawArrays(gl.TRIANGLE_STRIP,0,n);
 
 }
