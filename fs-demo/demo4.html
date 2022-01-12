@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/three.js"></script>
-    
-    <script id="vertexShader" type="x-shader/x-vertex">
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/three.js"></script>
+  
+  <script id="vertexShader" type="x-shader/x-vertex">
         void main() {
             gl_Position = vec4( position, 1.0 );
         }
-    </script>
-    
-    <script id="fragmentShader" type="x-shader/x-fragment">
+  </script>
+  
+  <script id="fragmentShader" type="x-shader/x-fragment">
 // 时间
 uniform float iTime;
 // 分辨率
@@ -39,16 +39,15 @@ void main(){
 	gl_FragColor=vec4(c/l,t);
 }
 
-</script>
+
+  </script>
 </head>
 <body>
 <div id="render"></div>
 
 <script type="text/javascript">
-  var width = window.innerWidth-1; // 画布的宽度
+  var width = window.innerWidth - 1; // 画布的宽度
   var height = window.innerHeight; // 画布的高度
-  console.log(width);
-  console.log(height);
 
   // 渲染器
   var renderer = new THREE.WebGLRenderer({antialias: true});

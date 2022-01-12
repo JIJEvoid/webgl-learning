@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fada6f61-6277-4f14-a33b-92d4b923f7cf" name="默认更改列表" comment="add">
-      <change afterPath="$PROJECT_DIR$/fs-demo/22-blackWhiteMask.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fs-demo/data/close_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fs-demo/img/bg3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fs-demo/23-wordRender.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo1/js/12_texture.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/js/12_texture.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/js/13_ani1.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/js/13_ani1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo1/js/8_easyAnimation.js" beforeDir="false" afterPath="$PROJECT_DIR$/demo1/js/8_easyAnimation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fs-demo/demo4.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/demo4.html" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,8 +19,8 @@
       <list>
         <option value="THREEJS File" />
         <option value="JavaScript File" />
-        <option value="GLSL HTML" />
         <option value="HTML File" />
+        <option value="GLSL HTML" />
       </list>
     </option>
   </component>
@@ -39,10 +39,18 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1klzVR6XMVDrDsuyIuymU0c8BVL" />
+  <component name="ProjectViewState">
+    <option name="compactDirectories" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/fs-demo/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.jscs" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -53,30 +61,19 @@
     <property name="node.js.selected.package.jscs" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/fs-demo" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/fs-demo/img" />
       <recent name="$PROJECT_DIR$/fs-demo/data" />
       <recent name="$PROJECT_DIR$/fs-demo" />
       <recent name="$PROJECT_DIR$/thessjs-demo/libs" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fs-demo" />
+    </key>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -88,6 +85,7 @@
       </serviceView>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -129,6 +127,8 @@
       <workItem from="1631079632652" duration="2542000" />
       <workItem from="1631257749658" duration="7506000" />
       <workItem from="1632300536986" duration="3207000" />
+      <workItem from="1638864046085" duration="2068000" />
+      <workItem from="1641955598576" duration="2227000" />
     </task>
     <task id="LOCAL-00003" summary="add">
       <created>1606807769023</created>
@@ -235,24 +235,30 @@
       <option name="project" value="LOCAL" />
       <updated>1631070132308</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="add">
+      <created>1638864657009</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1638864657009</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />

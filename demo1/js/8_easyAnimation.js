@@ -12,8 +12,6 @@ let vs =
 
 let fs = 'void main(){gl_FragColor = vec4(1.0,0.0,0.0,1.0);}';
 
-var angle = 290.0;
-
 let canvas = document.getElementById('webgl')
 var gl = canvas.getContext('webgl');
 var angle = 90.0;
