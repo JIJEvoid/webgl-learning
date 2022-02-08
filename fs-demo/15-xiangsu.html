@@ -15,12 +15,27 @@
         uniform float u_time;
 
         uniform sampler2D u_tex0;
+        
+        vec3 hsv2rgb_smooth(in vec3 c)
+        {
+          vec3 rgb = clamp(abs(mod(c.x*6.0+vec3(0.0, 4.0, 2.0), 6.0)-3.0)-1.0, 0.0, 1.0);
+  
+          rgb = rgb*rgb*(3.0-2.0*rgb);// cubic smoothing
+  
+          return c.z * mix(vec3(1.0), rgb, c.y);
+        }
+        
         float u_pixelate_size = 50.;
         void main() {
             vec2 uv = gl_FragCoord.xy/u_resolution;
+            u_pixelate_size *= sin(u_time*.1);
             uv = floor(uv*u_pixelate_size)/u_pixelate_size;
+            
             vec4 color = texture2D(u_tex0, uv);
-            gl_FragColor = color;
+//            vec3 color1 = color.xyz;
+            vec3 color1 = color.xyz;
+            gl_FragColor = vec4(hsv2rgb_smooth(color1),1.0);
+            //gl_FragColor = color;
         }
   </script>
   <script type="text/javascript" src="js/code.min.js"></script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="pragram" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>line</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script id="shader" type="x-shader/x-fragment">
+    
+    #ifdef GL_ES
+    
+    precision mediump float;
+    #endif
+    
+    uniform vec2 u_resolution;
+    uniform vec2 u_mouse;
+    uniform float u_time;
+    
+    void main() {
+      vec2 p = (2.0*gl_FragCoord.xy-u_resolution.xy)/u_resolution.y;
+      float tau = 3.1415926535*2.0;
+      float a = atan(p.x, p.y);
+      float r = length(p)*0.75;
+      vec2 uv = vec2(a/tau, r);
+      
+      //get the color
+      float xCol = (uv.x - (u_time / 3.0)) * 3.0;
+      xCol = mod(xCol, 3.0);
+      vec3 horColour = vec3(0.25, 0.25, 0.25);
+      
+      if (xCol < 1.0) {
+        
+        horColour.r += 1.0 - xCol;
+        horColour.g += xCol;
+      }
+      else if (xCol < 2.0) {
+        
+        xCol -= 1.0;
+        horColour.g += 1.0 - xCol;
+        horColour.b += xCol;
+      }
+      else {
+        xCol -= 2.0;
+        horColour.b += 1.0 - xCol;
+        horColour.r += xCol;
+      }
+      
+      /*
+       * uv越大,半径约小
+       *
+       *
+       */
+      uv = (4.0 * uv) - 1.0;
+      float beamWidth = (0.7+0.5*cos(uv.x*10.0*tau*0.15*clamp(floor(5.0 + 10.0*cos(u_time)), 0.0, 10.0))) * abs(1.0 / (30.0 * uv.y));
+      gl_FragColor = vec4((vec3(beamWidth) * horColour), 1.0);
+    }
+  </script>
+  <script type="text/javascript" src="js/code.min.js"></script>
+
+</head>
+<body>
+<canvas id="glslCanvas" width="800" height="600" data-textures="data/moon.jpg"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var fs = document.querySelector('#shader').innerHTML;
+  sandbox.load(fs);
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+</script>
+</body>
+</html>
