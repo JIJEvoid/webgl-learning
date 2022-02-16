@@ -12,13 +12,13 @@
   <script id="shader" type="x-shader/x-fragment">
     
     #ifdef GL_ES
-    
     precision mediump float;
     #endif
     
     uniform vec2 u_resolution;
     uniform vec2 u_mouse;
     uniform float u_time;
+    uniform sampler2D u_tex0;
     
     void main() {
       vec2 p = (2.0*gl_FragCoord.xy-u_resolution.xy)/u_resolution.y;
@@ -55,7 +55,9 @@
        *
        */
       uv = (4.0 * uv) - 1.0;
-      float beamWidth = (0.7+0.5*cos(uv.x*10.0*tau*0.15*clamp(floor(5.0 + 10.0*cos(u_time)), 0.0, 10.0))) * abs(1.0 / (30.0 * uv.y));
+      // 5.0 + 10.0*cos(u_time)>0 为曲面 <0则为线性
+      // float beamWidth = (0.7+0.5*cos(uv.x*10.0*tau*0.15*clamp(floor(5.0 + 10.0*cos(u_time)), 0.0, 10.0))) * abs(1.0 / (30.0 * uv.y));
+      float beamWidth = (0.7+0.5*cos(uv.x*10.0*tau*0.15*clamp(floor(-500.0), 0.0, 10.0))) * abs(1.0 / (30.0 * uv.y));
       gl_FragColor = vec4((vec3(beamWidth) * horColour), 1.0);
     }
   </script>
