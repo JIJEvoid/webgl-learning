@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac6a10f0-807c-428d-9520-dd361bd4844c" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/fs-demo/27-dream.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fs-demo/26-yanhua.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fs-demo/28-buffer$ichannel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fs-demo/25-colorRotate.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/25-colorRotate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fs-demo/27-dream.html" beforeDir="false" afterPath="$PROJECT_DIR$/fs-demo/27-dream.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,11 +18,22 @@
       <list>
         <option value="GLSL Shader" />
         <option value="GLSL HTML" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/fs-demo/14-noise.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/demo1/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/fs-demo/27-dream.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/fs-demo/23-wordRender.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/fs-demo/24-lighting.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/fs-demo/js/code.min.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/fs-demo/25-colorRotate.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/fs-demo/21-opacity.html" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="24or5HUlEj9PIUhvY40xLjREUaj" />
   <component name="ProjectViewState">
@@ -30,9 +43,11 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -46,7 +61,18 @@
       <updated>1644307599628</updated>
       <workItem from="1644307601729" duration="396000" />
       <workItem from="1644308613573" duration="2267000" />
+      <workItem from="1644993499874" duration="1082000" />
+      <workItem from="1645015881315" duration="2810000" />
+      <workItem from="1645088724946" duration="1890000" />
     </task>
+    <task id="LOCAL-00001" summary="add">
+      <created>1644993538249</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1644993538249</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -66,5 +92,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
   </component>
 </project>
