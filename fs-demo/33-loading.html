@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="pragram" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>line</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script id="shader" type="x-shader/x-fragment">
+    #ifdef GL_ES
+    precision mediump float;
+    #endif
+    uniform vec2 u_resolution;
+    uniform vec2 u_mouse;
+    uniform float u_time;
+    // Created by inigo quilez - iq/2013
+    // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+    const vec3 kCOLOR = vec3(0.1, 0.7, 1.0);
+    void main()
+    {
+      float time = u_time;
+      float gl = 0.5 + 0.5*sin(0.5*6.2831*time);
+      vec3 col = vec3(.2, .2, .2)*0.8;
+      vec2 p = vec2((2.0*gl_FragCoord.x -u_resolution.x)/u_resolution.y, (2.0*gl_FragCoord.y -u_resolution.y)/u_resolution.y);
+      vec2 q = p + 0.1;
+      q.x += 0.4;
+      q *= 1.0 + 0.3*q.x;
+      float r = length(q);
+      float a = atan(q.y, q.x) + 6.283185*time/12.0;
+      col = mix(col, vec3(0.07), (1.0-smoothstep(0.0, 0.24, abs(r-0.6)))*smoothstep(-1.0, 1.0, sin(17.0*a)));
+      col += 0.1*gl * kCOLOR * (1.0-smoothstep(0.10-0.1*gl, 0.15+gl*0.15, abs(r-0.6)))*(0.85+0.15*sin(17.0*a));
+      //
+      p.x += 0.4;
+      p *= 1.0 + 0.3*p.x;
+      r = length(p);
+      a = atan(p.y, p.x) + 6.283185*time/12.0;
+      col = mix(col, vec3(1.0, 1.0, 1.0)*0.9, (1.0-smoothstep(0.115, 0.125, abs(r-0.6)))*smoothstep(0.65, 0.75, sin(17.0*a)));
+      col += gl * kCOLOR * (1.0-smoothstep(0.10, 0.15, -0.01*gl+abs(r-0.6)))*smoothstep(0.0, 1.0, 0.25*gl+sin(17.0*a));
+      gl_FragColor = vec4(col, 1.0);
+    }
+  </script>
+  <script type="text/javascript" src="js/code.min.js"></script>
+
+</head>
+<body>
+<canvas id="glslCanvas" width="800" height="600" data-textures="data/moon.jpg"></canvas>
+
+<script>
+  var canvas = document.getElementById("glslCanvas");
+  var sandbox = new GlslCanvas(canvas);
+  var fs = document.querySelector('#shader').innerHTML;
+  sandbox.load(fs);
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+</script>
+</body>
+</html>
